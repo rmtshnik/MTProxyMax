@@ -1,33 +1,37 @@
 <p align="center">
+  <b>English</b> | <a href="README_RU.md">Русский</a>
+</p>
+
+<p align="center">
   <h1 align="center">MTProxyMax</h1>
-  <p align="center"><b>Многофункциональный менеджер MTProto-прокси для Telegram</b></p>
+  <p align="center"><b>The Ultimate Telegram MTProto Proxy Manager</b></p>
   <p align="center">
-    Один скрипт. Полный контроль. Никаких сложностей.
+    One script. Full control. Zero hassle.
   </p>
   <p align="center">
-    <img src="https://img.shields.io/badge/version-1.4.1--LTS-brightgreen" alt="Версия"/>
-    <img src="https://img.shields.io/badge/license-MIT-blue" alt="Лицензия"/>
-    <img src="https://img.shields.io/badge/engine-Rust_(telemt_3.x)-orange" alt="Движок"/>
-    <img src="https://img.shields.io/badge/platform-Linux-lightgrey" alt="Платформа"/>
+    <img src="https://img.shields.io/badge/version-1.4.1--LTS-brightgreen" alt="Version"/>
+    <img src="https://img.shields.io/badge/license-MIT-blue" alt="License"/>
+    <img src="https://img.shields.io/badge/engine-Rust_(telemt_3.x)-orange" alt="Engine"/>
+    <img src="https://img.shields.io/badge/platform-Linux-lightgrey" alt="Platform"/>
     <img src="https://img.shields.io/badge/bash-4.2+-yellow" alt="Bash"/>
     <img src="https://img.shields.io/badge/docker-multi--arch-blue" alt="Docker"/>
   </p>
   <p align="center">
-    <a href="#-быстрый-старт">Быстрый старт</a> &bull;
-    <a href="#-возможности">Возможности</a> &bull;
-    <a href="#-сравнение">Сравнение</a> &bull;
-    <a href="#-telegram-бот-21-команда">Telegram-бот</a> &bull;
-    <a href="#-справочник-cli">Справочник CLI</a> &bull;
-    <a href="#-история-изменений">История изменений</a> &bull;
-    <a href="https://www.samnet.dev/learn/networking/mtproto-proxy-telegram/">Полное руководство ↗</a>
+    <a href="#-quick-start">Quick Start</a> &bull;
+    <a href="#-features">Features</a> &bull;
+    <a href="#-comparison">Comparison</a> &bull;
+    <a href="#-telegram-bot-21-commands">Telegram Bot</a> &bull;
+    <a href="#-cli-reference">CLI Reference</a> &bull;
+    <a href="#-changelog">Changelog</a> &bull;
+    <a href="https://www.samnet.dev/learn/networking/mtproto-proxy-telegram/">Full Guide ↗</a>
   </p>
 </p>
 
 ---
 
-MTProxyMax — полнофункциональный менеджер MTProto-прокси для Telegram на базе **движка telemt 3.x, написанного на Rust**. Он дополняет прокси-движок интерактивным текстовым интерфейсом (TUI), полноценным интерфейсом командной строки (CLI), Telegram-ботом для удалённого управления, индивидуальными ограничениями доступа, мониторингом трафика, цепочками прокси и автоматическими обновлениями. Всё это — в одном bash-скрипте.
+MTProxyMax is a full-featured Telegram MTProto proxy manager powered by the **telemt 3.x Rust engine**. It wraps the raw proxy engine with an interactive TUI, a complete CLI, a Telegram bot for remote management, per-user access control, traffic monitoring, proxy chaining, and automatic updates — all in a single bash script.
 
-<img src="main.png" width="600" alt="Главное меню MTProxyMax"/>
+<img src="main.png" width="600" alt="MTProxyMax Main Menu"/>
 
 ```bash
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/SamNet-dev/MTProxyMax/main/install.sh)"
@@ -35,55 +39,55 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/SamNet-dev/MTProxyM
 
 ---
 
-## Почему MTProxyMax?
+## Why MTProxyMax?
 
-Большинство инструментов MTProxy предоставляют только прокси и ссылку для подключения. MTProxyMax предлагает **максимальный набор возможностей** менеджера прокси с движком на Rust (`telemt`) — **всё необходимое** в одном скрипте:
+Most MTProxy tools give you a proxy and a link. That's it. MTProxyMax gives you the **absolute maximum of features possible** from a proxy manager with a Rust engine (`telemt`) — providing **everything you need** in one single script:
 
-- 🏎️ **Ограничение скорости QoS в реальном времени (`speed-limit`)** — иерархические ограничения через `tc` и `htb` ядра Linux, динамически привязанные к активным IP-сессиям пользователей, без перезапуска контейнеров.
-- 🌐 **Объединение серверов в парк (`fleet`)** — централизованный сбор телеметрии по схеме Master-Slave, контроль одновременных подключений и суммарный учёт скорости и трафика в Гбит/с и ТБ по всем серверам.
-- 🔐 **Автоматизация Let's Encrypt / SSL Shield (`ssl-shield`)** — автоматический выпуск сертификатов через `openssl` и проверка TLS SNI домена.
-- ☁️ **Внешние облачные резервные копии (`backup-cloud`)** — отправка tar-архивов одним действием или по cron в чат администратора Telegram (`sendDocument`) либо облачное хранилище (`rclone`/S3/R2).
-- 🤖 **Двухуровневый Telegram-бот самообслуживания (`telegram`)** — общедоступные команды для пользователей без авторизации (`/start`, `/my_status <label>`, `/voucher`) и защищённые команды администратора (`/mp_fleet`, `/mp_secrets`, `/mp_lockdown`).
-- 🏆 **Платформа для корпоративного использования** — более 35 возможностей для работы с сетью, управления квотами, автоматизации DevOps и оперативной телеметрии.
-- 👥 **Общие пулы квот и календарные расписания** — объединение пользователей под общей квотой трафика (`pool`) и периоды без учёта трафика в выходные и праздники (`calendar`).
-- ⚡ **Автоматическое переключение при сбоях и поиск SNI** — восстановление вышестоящих прокси (`failover`), автоматический поиск доменов маскировки (`auto-sni`) и рандомизация отпечатков TLS (`cert-shield`).
-- 🚑 **Экстренный перенос одним действием и вебхуки** — перенос сервера через SSH/rsync (`evacuate`) и JSON-уведомления в Discord, Slack и DingTalk (`webhook`).
-- 📊 **Оперативная телеметрия и отчёты аудита** — ASCII-панель трафика в реальном времени (`live-diag`), листы с QR-кодами для печати (`qr-sheet`) и ежемесячные отчёты для расчётов (`export-report`).
-- 🏢 **Коммерческие функции** — пакетное создание подарочных ваучеров (`voucher create/redeem`), ролевое управление доступом (`admin add`) и статический портал состояния с эффектом матового стекла (`portal`).
-- 🛡️ **Автоматическая защита от сканеров** — блокировка Shodan/Censys через `ipset` (`scanner-shield`).
-- 🛡️ **Защита от DPI и маскировка** — управление перегрузкой BBRv3 (`bbr`), дополнение пакетов против DPI (`shield`), перенаправление проверочных запросов через обратный прокси (`cover-shield`) и активная диагностика (`dpi-inspect`).
-- 🏎️ **Ограничение скорости и квоты** — QoS по IP через Linux `tc`, периоды Happy Hours без списания квоты и автоматические уведомления Telegram о злоупотреблениях и истечении доступа.
-- 🚨 **Экстренный режим защиты** — мгновенное усиление защиты через CLI или Telegram-бота (`/mp_lockdown`).
-- 🌐 **Автоматизация DevOps и кластеров** — экспорт конфигураций балансировщиков HAProxy/Nginx, обновление Cloudflare DDNS и диагностические снимки.
-- 🔐 **Индивидуальные ключи пользователей** с отдельными квотами трафика, ограничениями устройств и сроками действия.
-- 🏷️ **Теги и шаблоны** — группировка пользователей по категориям и быстрое подключение с готовыми наборами ограничений.
-- 📅 **Ежемесячный сброс квот** — автоматическое обнуление счётчиков пользователей по модели подписки.
-- 🤖 **Telegram-бот** с 21 административной командой — управление пользователями, просмотр сводок состояния и включение экстренной защиты из чата.
-- 🗂️ **Репликация** — автоматическая синхронизация конфигурации с ведомыми серверами через rsync+SSH.
-- 📦 **Перенос сервера** — экспорт и импорт tar-архива одной командой.
-- 💾 **Зашифрованные резервные копии** — AES-256 и автоматическая очистка старых архивов.
-- 🖥️ **Интерактивный TUI** — настройка через меню без запоминания команд.
-- 📊 **Метрики Prometheus** — фактическая статистика по пользователям, а не только оценки iptables.
-- 🔗 **Цепочки прокси** — маршрутизация через вышестоящие SOCKS5-прокси для дополнительной приватности.
-- 🚨 **Режим обслуживания и блокировка IP** — корректная подготовка к перезапуску и точечные ограничения.
-- 🩺 **Диагностика, проверка и журнал аудита** — комплексная проверка работы и история изменений.
-- ⚙️ **Настройка движка** — изменение разрешённых параметров без ручного редактирования TOML.
-- 🔄 **Автовосстановление и ротация** — обнаружение простоев и автоматическая замена устаревших ключей.
-- 🐳 **Готовые Docker-образы** — установка за секунды, а не минуты.
+- 🏎️ **Real-Time QoS Bandwidth Shaping (`speed-limit`)** — Linux kernel `tc` and `htb` hierarchical rate limits dynamically mapped to active per-user IP sessions without container restarts.
+- 🌐 **Multi-Server Fleet Federation (`fleet`)** — Centralized Master-Slave telemetry aggregation, global concurrent connection health, and pooled Gbps/TB bandwidth tracking across your entire server mesh.
+- 🔐 **Automated Let's Encrypt / SSL Shield (`ssl-shield`)** — Automated `openssl` certificate issuance and domain TLS SNI validation.
+- ☁️ **Automated Off-Site Cloud Backups (`backup-cloud`)** — 1-click & cron tarball offloading directly to a Telegram admin chat (`sendDocument`) or multi-cloud storage (`rclone`/S3/R2).
+- 🤖 **Dual-Tier Self-Service Telegram Bot (`telegram`)** — Public unauthenticated tier for end-users (`/start`, `/my_status <label>`, `/voucher`) and a protected Admin Control Plane (`/mp_fleet`, `/mp_secrets`, `/mp_lockdown`).
+- 🏆 **Comprehensive Enterprise Platform** — Over 35 enterprise features across Networking, Quota Governance, DevOps Automation, and Live Telemetry.
+- 👥 **Shared Quota Pools & Calendar Schedules** — Group users under shared bandwidth ceilings (`pool`) and offer unmetered weekend/holiday data passes (`calendar`).
+- ⚡ **Autonomous Failover & SNI Hunter** — Self-healing upstream watchdog (`failover`), automated cover domain hunting (`auto-sni`), and TLS fingerprint randomization (`cert-shield`).
+- 🚑 **1-Click Emergency Evacuation & Webhooks** — Instant SSH/rsync server migration (`evacuate`) and multi-channel JSON notifications for Discord, Slack, and DingTalk (`webhook`).
+- 📊 **Live Telemetry & Audit Reports** — Real-time ASCII traffic dashboard (`live-diag`), printable QR onboarding sheets (`qr-sheet`), and monthly billing export reports (`export-report`).
+- 🏢 **Enterprise Commercial Suite** — Batch gift code vouchers (`voucher create/redeem`), Role-Based Access Control (`admin add`), and static glassmorphism Status Portal (`portal`).
+- 🛡️ **Automated Hostile Threat Shield** — Live Shodan/Censys scanner blacklisting via `ipset` (`scanner-shield`)
+- 🛡️ **Next-Gen Anti-DPI & Stealth Suite** — BBRv3 congestion control (`bbr`), Anti-DPI packet padding (`shield`), Reverse-proxy probe trapdoor (`cover-shield`), and active forensic inspection (`dpi-inspect`)
+- 🏎️ **Bandwidth Shaping & Quotas** — Linux `tc` per-IP QoS limits, off-peak Happy Hours quota exclusions, and automated Telegram abuse/expiry alerts
+- 🚨 **Emergency Lockdown Switch** — Instant panic posture hardening via CLI or Telegram bot (`/mp_lockdown`)
+- 🌐 **DevOps & Clustering Automation** — HAProxy/Nginx load balancer config exporter, Cloudflare DDNS updater, and forensic snapshots
+- 🔐 **Multi-user secrets** with individual bandwidth quotas, device limits, and expiry dates
+- 🏷️ **Tags & templates** — group users by category, onboard in seconds with reusable limit sets
+- 📅 **Monthly quota reset** — subscription-style automatic traffic resets per user
+- 🤖 **Telegram bot** with 21 administrative commands — manage users, view health digests, and trigger lockdowns from chat
+- 🗂️ **Replication** — sync config to slave servers automatically via rsync+SSH
+- 📦 **Server migration** — tarball-based export/import with one command
+- 💾 **Encrypted backups** — AES-256 backups with autoclean policy
+- 🖥️ **Interactive TUI** — no need to memorize commands, menu-driven setup
+- 📊 **Prometheus metrics** — real per-user traffic stats, not just iptables guesses
+- 🔗 **Proxy chaining** — route through SOCKS5 upstreams for extra privacy
+- 🚨 **Maintenance mode + IP banlist** — graceful pre-restart, fine-grained blocking
+- 🩺 **Doctor, verify, audit log** — comprehensive diagnostics and change history
+- ⚙️ **Engine tuning** — whitelisted parameter tuning without editing raw TOML
+- 🔄 **Auto-recovery + auto-rotate** — detects downtime, rotates aging secrets automatically
+- 🐳 **Pre-built Docker images** — installs in seconds, not minutes
 
 ---
 
-## 🚀 Быстрый старт
+## 🚀 Quick Start
 
-### Установка одной командой
+### One-Line Install
 
 ```bash
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/SamNet-dev/MTProxyMax/main/install.sh)"
 ```
 
-Интерактивный мастер проведёт через все этапы: выбор порта и домена, создание первого ключа пользователя и, при необходимости, настройку Telegram-бота.
+The interactive wizard walks you through everything: port, domain, first user secret, and optional Telegram bot setup.
 
-### Ручная установка
+### Manual Install
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/SamNet-dev/MTProxyMax/main/mtproxymax.sh -o mtproxymax
@@ -91,216 +95,216 @@ chmod +x mtproxymax
 sudo ./mtproxymax install
 ```
 
-### После установки
+### After Install
 
 ```bash
-mtproxymax           # Открыть интерактивный TUI
-mtproxymax status    # Проверить состояние прокси
+mtproxymax           # Open interactive TUI
+mtproxymax status    # Check proxy health
 ```
 
-### 🐳 Официальный Docker-образ и реестр
+### 🐳 Official Docker Image & Registry
 
-MTProxyMax использует готовые Docker-образы для нескольких архитектур (`linux/amd64`, `linux/arm64`), размещённые в GitHub Container Registry (GHCR):
+MTProxyMax is powered by pre-compiled multi-architecture (`linux/amd64`, `linux/arm64`) Docker images hosted on GitHub Container Registry (GHCR):
 
 ```bash
 docker pull ghcr.io/samnet-dev/mtproxymax-telemt:latest
 ```
 
-#### Как это работает:
-- **Готовый высокопроизводительный движок**: образ содержит MTProto-движок `telemt` на Rust/Tokio, собранный с оптимизацией на этапе компоновки (`LTO`).
-- **Поддержка нескольких архитектур**: нативная работа на серверах `x86_64` (AMD64) и `aarch64` (ARM64 / Raspberry Pi / Ampere Cloud).
-- **Автоматическое управление контейнером**: при выполнении `mtproxymax install` или `mtproxymax start` MTProxyMax загружает `ghcr.io/samnet-dev/mtproxymax-telemt:latest` и запускает его в изолированном Docker-контейнере с сетью хоста.
-- **Резервная сборка из исходников**: если доступ к GHCR ограничен, MTProxyMax автоматически собирает `telemt` локально из исходного кода на Rust.
+#### How it Works:
+- **Pre-compiled High Performance Engine**: Packages the high-performance Rust/Tokio `telemt` MTProto engine built with Link-Time Optimization (`LTO`).
+- **Multi-Arch Support**: Runs natively on `x86_64` (AMD64) servers and `aarch64` (ARM64 / Raspberry Pi / Ampere Cloud) instances.
+- **Automated Container Orchestration**: During `mtproxymax install` or `mtproxymax start`, MTProxyMax automatically pulls `ghcr.io/samnet-dev/mtproxymax-telemt:latest` and manages it inside an isolated Docker container with host network permissions.
+- **Offline / Source Fallback**: If internet access to GHCR is restricted, MTProxyMax automatically compiles `telemt` from Rust source locally.
 
-### ⚡ Настройка производительности и защиты от DPI после установки
+### ⚡ Post-Install Performance & Anti-DPI Setup Guide
 
-**Почему мастер установки (`mtproxymax install`) не запрашивает расширенные настройки ядра и защиты от DPI?**
-Установка ориентирована на **быстрый и простой запуск**. Мастер поднимает защищённый, полностью рабочий прокси менее чем за 30 секунд, не перегружая новичков настройками ядра Linux, масштабированием окна TCP и понятиями netfilter conntrack.
+**Why aren't advanced kernel & Anti-DPI settings asked during the initial setup wizard (`mtproxymax install`)?**  
+Our installation philosophy prioritizes **zero-friction speed**. The initial wizard gets a secure, fully functional proxy running in under 30 seconds without overwhelming new users with Linux kernel tuning, TCP window scaling, or netfilter conntrack concepts.
 
-**Насколько сложно включить расширенные функции после установки?**
-Это **очень просто: одно действие в меню или одна команда**. Все 13 расширенных сетевых функций, настроек ядра и средств обхода цензуры можно переключать без перезагрузки сервера и разрыва активных подключений.
+**How easy is it to configure advanced enhancements after setup?**  
+It is **ultra-easy (1-Click or 1-Line)**! All 13 advanced network, kernel, and anti-censorship features can be toggled instantly without restarting your server or breaking active user connections.
 
-1. **Интерактивное меню:** запустите `mtproxymax`, выберите **`[p] Performance & Self-Healing Suite`** и нажмите `[1]`, `[2]`, `[a]`, `[b]` или `[c]`, чтобы переключить нужную защиту или ускорение.
-2. **Командная строка:** выполните `mtproxymax bbr on`, `mtproxymax shield on` или `mtproxymax syn-shield on` в терминале.
+1. **Interactive Menu:** Run `mtproxymax` -> Select **`[p] Performance & Self-Healing Suite`** -> Press `[1]`, `[2]`, `[a]`, `[b]`, or `[c]` to toggle any shield or booster instantly.
+2. **Direct CLI Commands:** Run `mtproxymax bbr on`, `mtproxymax shield on`, or `mtproxymax syn-shield on` directly from your terminal.
 
-#### 📊 Сравнение улучшений, рекомендации и влияние на систему
+#### 📊 Enhancement Tradeoff & Recommendation Matrix
 
-| Команда / параметр | Что меняется в работе прокси | Когда рекомендуется | Влияние на систему |
+| Enhancement Command / Option | What It Does to the Proxy | Recommended Use Case | System Impact |
 | :--- | :--- | :--- | :--- |
-| **`mtproxymax bbr on`**<br>*(Автонастройка BBRv3 и ECN)* | Включает управление перегрузкой TCP BBRv3 от Google, Fair Queueing (`fq`), явное уведомление о перегрузке (`tcp_ecn=1`) и увеличивает TCP-буферы до 16 МБ. Устраняет ограничения из-за потерь пакетов на международных каналах с высокой задержкой. | **Рекомендуется для всех серверов.** Существенно улучшает скорость скачивания и качество голосовых и видеозвонков на дальних маршрутах. | **Минимальная нагрузка на CPU**, до ~16 МБ дополнительной RAM при пиках одновременного трафика. |
-| **`mtproxymax shield on`**<br>*(Дополнение пакетов против DPI)* | Рандомизирует ограничение TCP MSS (`1360`) и дополнение записей FakeTLS, изменяя распределение размеров пакетов для обхода эвристических классификаторов DPI. | **Рекомендуется в регионах с жёсткой цензурой** (GFW, ТСПУ, TIC), когда провайдеры замедляют или блокируют FakeTLS по статистике размеров пакетов. | **Без дополнительных затрат CPU** благодаря обработчикам netfilter в ядре. Небольшое (~1–2%) увеличение служебного трафика. |
-| **`mtproxymax syn-shield on`**<br>*(Защита от SYN на уровне ядра)* | Использует правила netfilter `conntrack` и `recent` для задержки и отбрасывания агрессивных проверок (>15 SYN за 5 с с одного IP) до их попадания в приложение. | **Рекомендуется для публичных прокси и серверов, подвергающихся сканированию.** Защищает движок от исчерпания ресурсов при рукопожатиях и обнаружения ботами цензуры. | **Снижает нагрузку на CPU** при SYN-флуде, отбрасывая пакеты в ядре. |
-| **`mtproxymax cover-shield on`**<br>*(Маскировка через обратный прокси)* | Незаметно перенаправляет HTTP GET не от MTProto и некорректные TLS-рукопожатия на основной сайт (`cloudlfare.com`), не закрывая TCP-сокет. | **Рекомендуется при активных проверках.** При сканировании порта прокси боты провайдера видят работающий HTTPS-сайт. | **Низкая нагрузка на CPU**, несколько килобайт трафика для перенаправления проверки на резервный домен. |
-| **`mtproxymax tcp-fastpath on`**<br>*(Ускорение TCP и SACK)* | Включает масштабирование окна TCP по RFC, выборочные подтверждения (SACK) и автоматическое определение MTU пути (`tcp_mtu_probing=1`). | **Рекомендуется для мобильных пользователей (4G/LTE/5G)** при частой смене базовых станций и фрагментации из-за меняющегося MTU. | **Без дополнительных затрат**, ускоряет восстановление соединения после потерь пакетов. |
-| **`mtproxymax cpu-tune on`**<br>*(Распределение обработки по ядрам)* | Равномерно распределяет обработку входящих зашифрованных пакетов по доступным ядрам CPU через Linux Receive Packet Steering (RPS/RFS). | **Рекомендуется для многоядерных серверов (2+ ядра)** с более чем 500 одновременными пользователями. Устраняет перегрузку одного ядра. | **Оптимизирует загрузку CPU**. Автоматически пропускается на одноядерных системах и в LXC-контейнерах. |
+| **`mtproxymax bbr on`**<br>*(BBRv3 & ECN Auto-Tuning)* | Activates Google's TCP BBRv3 congestion control, Fair Queueing (`fq`), Explicit Congestion Notification (`tcp_ecn=1`), and expands TCP buffer memory to 16MB. Prevents packet drop bottlenecks on high-latency international links. | **Recommended for ALL servers.** Dramatically improves user download speeds and voice/video call quality across long-distance routes. | **Negligible CPU**, uses up to ~16MB extra RAM during peak concurrent traffic bursts. |
+| **`mtproxymax shield on`**<br>*(Anti-DPI Packet Padding)* | Randomizes TCP MSS clamping (`1360`) and injects dynamic FakeTLS record padding variations to scrub packet size distributions, defeating heuristic Deep Packet Inspection (DPI) classifiers. | **Recommended for strict censorship regions** (GFW, TSPU, TIC). Essential when ISPs throttle or block standard FakeTLS connections based on statistical packet sizes. | **Zero CPU overhead** (enforced natively by kernel netfilter hooks). Slight (~1–2%) increase in header bandwidth. |
+| **`mtproxymax syn-shield on`**<br>*(Kernel SYN Shield)* | Engages OS-level `conntrack` and `recent` netfilter rules to tarpit and drop aggressive active probes (>15 SYN handshakes / 5s per IP) before they reach user space or the application layer. | **Recommended for public proxies or servers under scan attack.** Protects your proxy engine from handshake exhaustion and hostile censorship discovery bots. | **Reduces CPU load** during SYN flood attacks by dropping packets in kernel space. |
+| **`mtproxymax cover-shield on`**<br>*(Reverse-Proxy Cover Shield)* | Acts as an active trapdoor: when non-MTProto HTTP GET requests or invalid TLS handshakes arrive, they are silently forwarded to your primary website (`cloudlfare.com`) without closing the TCP socket. | **Recommended when facing active forensic probes.** Ensures ISP censorship bots see a real, working HTTPS website when inspecting your proxy port. | **Low CPU**, requires a few kilobytes of bandwidth when forwarding probe traffic to the fallback domain. |
+| **`mtproxymax tcp-fastpath on`**<br>*(TCP Fast-Path & SACK)* | Enables RFC-compliant TCP Window Scaling, Selective Acknowledgments (SACK), and automatic Path MTU Discovery (`tcp_mtu_probing=1`). | **Recommended for mobile users (4G/LTE/5G)** whose networks frequently change cell towers or suffer from variable MTU fragmentation. | **Zero overhead**, improves connection recovery after packet drops. |
+| **`mtproxymax cpu-tune on`**<br>*(Multi-Core IRQ Spreading)* | Distributes incoming encrypted network packets evenly across all available CPU cores using Linux Receive Packet Steering (RPS/RFS). | **Recommended for multi-core servers (2+ cores)** serving >500 concurrent users. Eliminates single-core bottlenecks under heavy traffic loads. | **Optimizes CPU utilization** across cores. Automatically skipped safely on single-core or LXC containers. |
 
 ---
 
-## ✨ Возможности
+## ✨ Features
 
-### 🛡️ FakeTLS V2 и расширенная защита от DPI
+### 🛡️ FakeTLS V2 & Advanced Anti-DPI Defenses
 
-Трафик прокси выглядит как обычный HTTPS. Движок **Fake TLS V2** воспроизводит реальные сеансы TLS 1.3: профили для отдельных доменов, настоящие наборы шифров, переменную длину сертификатов и реалистичную фрагментацию записей.
+Your proxy traffic looks identical to normal HTTPS traffic. The **Fake TLS V2** engine mirrors real TLS 1.3 sessions — per-domain profiles, real cipher suites, dynamic certificate lengths, and realistic record fragmentation.
 
-- **Пул доменов SNI (`tls_domains`):** переключение между несколькими авторитетными доменами маскировки (например, `cloudflare.com,www.microsoft.com,www.google.com`) в одном экземпляре движка для обхода замедления отдельных доменов средствами DPI и блокировок SNI (`mtproxymax domain-pool <domains>`).
-- **Защита от SYN на уровне ядра:** встроенное ограничение частоты через iptables/nftables (`conntrack` + модуль `recent`), задерживающее агрессивные DPI-сканеры (>15 SYN за 5 секунд с одного IP) до уровня приложения (`mtproxymax syn-shield on`).
-- **Дополнение пакетов против DPI (`mtproxymax shield on`):** рандомизирует ограничение TCP MSS (`1360`) и распределение размеров пакетов FakeTLS для противодействия эвристикам GFW, ТСПУ и TIC.
-- **Маскировка через обратный прокси (`mtproxymax cover-shield on`):** перенаправляет HTTP GET не от MTProto и некорректные TLS-рукопожатия на резервный сайт (например, `https://cloudflare.com`) вместо закрытия или сброса TCP-сокета.
-- **Режимы маскировки (`normal` и `ultra`):** переключение защиты от повторного воспроизведения без остановки (`mtproxymax stealth ultra`). Режим `ultra` сокращает окно повторов до 180 секунд, расширяет кэш nonce до 131 072 записей и немедленно отбрасывает запросы с неизвестным SNI.
-- **Ограничение TCP MSS:** предотвращает потери из-за «чёрных дыр» MTU и фрагментацию, согласуя максимальный размер TCP-сегмента с MTU пути: `--clamp-mss-to-pmtu` (`mtproxymax clamp-mss on`).
-- **Управление клиентским MSS Telemt:** настройка внутреннего размера сегментов для обхода цензуры (`mtproxymax client-mss status|off|tspu`). По умолчанию — `off`: обычное поведение TCP для максимальной скорости в сетях WireGuard и с маршрутизацией по правилам. Режим `tspu` доступен для обхода DPI в регионах с жёсткой цензурой.
-- **Пул портов прослушивания:** одновременная работа на нескольких резервных TCP-портах (например, 443, 8443, 2053) через автоматическое перенаправление NAT в ядре без дополнительных контейнеров (`mtproxymax port-pool add <port>`).
-
----
-
-### 🔬 Диагностика DPI и автоматический контроль доменов маскировки
-
-- **Проверка готовности к DPI (`mtproxymax dpi-inspect`):** автоматическая эвристическая проверка по пяти пунктам: доступность домена маскировки, соответствие длины сертификата, состояние SYN-защиты ядра, режим защиты от повторов и ограничение TCP MSS. Результат — **оценка защиты от DPI по шкале до 100**.
-- **Контроль домена маскировки (`mtproxymax cover-watchdog auto`):** фоновая служба восстановления. Если государственный фильтр или провайдер блокирует либо замедляет основной домен (HTTP 5xx или тайм-ауты), служба выбирает следующий доступный домен из пула и перезагружает движок прокси.
+- **Multi-Domain SNI Pool (`tls_domains`):** Rotate between multiple high-reputation cover domains (e.g., `cloudflare.com,www.microsoft.com,www.google.com`) within the same proxy engine instance to evade single-domain DPI throttling and SNI blacklisting (`mtproxymax domain-pool <domains>`).
+- **Kernel SYN Shield:** Built-in iptables/nftables rate limiter (`conntrack` + `recent` module) that tarpits aggressive DPI active scanners (>15 SYN packets in 5 seconds per IP) before they reach the application layer (`mtproxymax syn-shield on`).
+- **Anti-DPI Packet Padding Shield (`mtproxymax shield on`):** Randomizes TCP MSS clamping (`1360`) and scrubs FakeTLS packet size distributions to defeat GFW, TSPU, and TIC heuristic analysis.
+- **Reverse-Proxy Cover Shield (`mtproxymax cover-shield on`):** Active scanner trapdoor that seamlessly forwards non-MTProto HTTP GETs and invalid TLS handshakes directly to a fallback website (e.g., `https://cloudflare.com`) instead of closing or resetting the TCP socket.
+- **Stealth Presets (`normal` vs `ultra`):** Hot-swappable anti-replay hardening (`mtproxymax stealth ultra`). `ultra` tightens the replay window to 180 seconds, expands the nonce cache to 131,072 entries, and drops unknown SNI probes immediately.
+- **TCP MSS Clamping:** Prevents MTU black hole drops and packet fragmentation by aligning kernel TCP Maximum Segment Size `--clamp-mss-to-pmtu` (`mtproxymax clamp-mss on`).
+- **Telemt Client MSS Control:** Configure Telemt's internal anti-censorship segment sizing (`mtproxymax client-mss status|off|tspu`). Defaults to `off` (normal TCP behavior for maximum throughput across WireGuard/policy-routed networks), with optional `tspu` mode for DPI evasion in heavily censored regions.
+- **Multi-Port Listener Pool:** Listen on multiple fallback TCP ports simultaneously (e.g., 443, 8443, 2053) using automated kernel NAT redirection without spawning extra container instances (`mtproxymax port-pool add <port>`).
 
 ---
 
-### 🚨 Экстренный режим защиты
+### 🔬 Active DPI Forensics & Self-Healing Cover Watchdog
 
-Мгновенное усиление защиты сервера при активной цензуре или DDoS-атаке:
+- **DPI Readiness Inspector (`mtproxymax dpi-inspect`):** Runs an automated 5-point heuristic network forensic scan (cover domain reachability, certificate length parity, kernel SYN shield state, engine replay hardening preset, and TCP MSS clamping state) to assign your server a live **Anti-DPI Hardening Score out of 100**.
+- **Automated Cover Watchdog (`mtproxymax cover-watchdog auto`):** A self-healing background daemon. If state firewalls or ISP censors block or throttle your primary cover domain (returning HTTP 5xx or connection timeouts), the watchdog automatically rotates to the next available backup domain in your pool and reloads the proxy engine.
+
+---
+
+### 🚨 Emergency Panic Lockdown Switch
+
+Instantly harden server posture under active censorship or DDoS attacks:
 ```bash
 mtproxymax lockdown on
 ```
-Режим lockdown сразу включает **SYN-защиту ядра**, усиление conntrack **Ultra-Stealth**, **ограничение TCP MSS** и отправляет приоритетное уведомление в чат администратора Telegram-бота. Его также можно включить удалённо командой `/mp_lockdown on`.
+Activating lockdown instantly engages the **Kernel SYN Shield**, activates **Ultra-Stealth** conntrack hardening, enforces **TCP MSS Clamping**, and sends a priority broadcast alert to your Telegram administrator bot chat. You can also toggle lockdown remotely from Telegram via `/mp_lockdown on`.
 
 ---
 
-### 🏎️ Ограничение скорости по IP (QoS) и управление квотами
+### 🏎️ Per-IP Bandwidth Shaping (QoS) & Quota Intelligence
 
-- **Ограничение трафика в ядре (`mtproxymax qos set <mbps>`):** использует иерархические token bucket в Linux `tc` (Traffic Control) и hashlimit межсетевого экрана для строгого ограничения скорости по IP (например, 5 Мбит/с), чтобы отдельные пользователи не занимали весь канал сервера.
-- **Периоды Happy Hours (`mtproxymax happy-hours set 02:00-08:00`):** задаёт интервалы без учёта трафика. Использование в это время не уменьшает месячную квоту пользователя.
-- **Уведомления об истечении доступа (`mtproxymax notify-expiry`):** проверяет активные учётные записи и автоматически отправляет личные напоминания в Telegram за 7 дней, 3 дня и 24 часа до окончания подписки.
-- **Контроль аномального трафика (`mtproxymax abuse-watch`):** отслеживает потребление за последние 24 часа и отмечает подозрительные учётные записи с расходом более 50 ГБ/сутки.
-
----
-
-### 🌐 Кластеры DevOps и экспорт балансировки нагрузки
-
-- **Экспорт балансировщика уровня L4 (`mtproxymax export-lb [haproxy|nginx]`):** формирует готовые фрагменты конфигураций HAProxy (`haproxy.cfg`) и Nginx Stream (`nginx.conf`) с прозрачной передачей TCP и заголовками PROXY Protocol v2.
-- **Динамический DNS Cloudflare (`mtproxymax ddns set <token> <zone_id> <record>`):** обнаруживает смену публичного IP сервера и обновляет DNS-записи A через API v4 Cloudflare (`mtproxymax ddns run`).
-- **Диагностический архив (`mtproxymax diag-dump`):** собирает сетевые настройки ядра, таблицы маршрутизации, активные правила iptables, сведения о контейнере и настройки с удалёнными чувствительными данными в архив `.tar.gz`.
-- **Снимки конфигурации (`mtproxymax snapshot create <name>`):** сохраняет все настройки прокси, ключи, вышестоящие прокси, пулы доменов и геоблокировки в автономный tar-архив с восстановлением одним действием (`mtproxymax snapshot restore <name>`).
+- **Kernel Traffic Shaping (`mtproxymax qos set <mbps>`):** Uses Linux `tc` (Traffic Control) hierarchical token buckets and kernel firewall hashlimits to enforce strict per-IP speed limits (e.g., 5 Mbps per IP), preventing single users from saturating server uplink bandwidth.
+- **Off-Peak Happy Hours (`mtproxymax happy-hours set 02:00-08:00`):** Define unmetered schedule windows. Any traffic consumed during Happy Hours completely bypasses user monthly bandwidth quota depletion.
+- **Proactive Expiry Notifications (`mtproxymax notify-expiry`):** Scans active user accounts and dispatches automated direct Telegram reminder alerts 7 days, 3 days, and 24 hours prior to subscription expiration.
+- **Abnormal Bandwidth Watchdog (`mtproxymax abuse-watch`):** Monitors rolling 24-hour traffic consumption and flags suspicious accounts exceeding 50GB/day.
 
 ---
 
-### ⚡ Эксплуатация, сводки и подключение пользователей
+### 🌐 DevOps Clustering & Load Balancing Export
 
-- **Резервные копии в Telegram (`mtproxymax backup send-tg`):** отправляет последний архив сервера (`.tar.gz`) файлом в чат администратора бота для восстановления даже при отказе диска VPS.
-- **Утренняя сводка (`mtproxymax daily-report on 08:00`):** планирует автоматический отчёт о трафике за сутки, активных пользователях, срабатываниях SYN-защиты и истекающих подписках.
-- **Защита SSH (`mtproxymax ssh-shield on`):** настраивает правила fail2ban для MTProto-сервера и автоматически блокирует IP, перебирающие пароли SSH.
-- **Оценка качества сети (`mtproxymax net-grade`):** проверяет задержки DNS и доступность TCP дата-центров Telegram (DC1–DC5), выставляя оценку сервера (`A+`, `A`, `B`, `C/D`).
-- **Мастер подключения пользователя (`mtproxymax onboard <label>`):** пошагово создаёт пользователя, задаёт ограничения устройств, месячную квоту, срок действия и генерирует QR-код ссылки Telegram.
-
----
-
-### 🚀 Производительность, диагностика и самовосстановление
-
-- **Ускорение TCP BBR и Fast Open (`mtproxymax tcp-boost on`):** включает алгоритм управления перегрузкой Google TCP BBR и TCP Fast Open (`tfo=3`), удваивая скорость передачи и устраняя ограничения из-за потерь пакетов на международных маршрутах.
-- **Очистка зависших мобильных сокетов (`mtproxymax tcp-clean on`):** задаёт агрессивные таймеры keep-alive ядра (`keepalive_time=300`, `intvl=15`), автоматически обнаруживая и удаляя осиротевшие сокеты 4G/LTE за 45 секунд.
-- **Снижение задержек сокетов (`mtproxymax socket-boost on`):** расширяет очереди ожидания (`somaxconn=65535`) и оптимизирует пределы буферов (`notsent_lowat=16384`), уменьшая накопление пакетов и задержки TCP-рукопожатий при всплесках подключений.
-- **Динамическое дополнение FakeTLS (`mtproxymax tls-pad auto`):** случайным образом меняет длину данных сертификата от 1500 до 3800 байт при периодическом обслуживании для обхода статистического анализа размеров пакетов средствами ИИ/МО.
-- **Приманка для активных проверок (`mtproxymax honeypot on`):** включает перенаправление в ядре, отправляя ботов цензуры без действительного ключа MTProto на подставной домен маскировки.
-- **Поиск утечек и общего использования подписок (`mtproxymax leak-scan 3`):** проверяет таблицы активных соединений и отмечает ключи, одновременно используемые более чем из 3 разных IP-подсетей.
-- **Проверка TLS домена маскировки (`mtproxymax cert-check <domain>`):** глубоко проверяет SSL/TLS домена FakeTLS (`PROXY_DOMAIN`), включая HTTP-статусы, сроки действия и цепочки сертификатов, для предотвращения блокировок провайдером.
-- **Клонирование VPS одной командой (`mtproxymax clone-link` / `bootstrap`):** упаковывает вышестоящие прокси, профили настроек, рекламный тег и шаблоны в строку Base64 и выводит команду (`mtproxymax bootstrap <base64>`) для воспроизведения настроек на новом узле за 5 секунд.
-- **Экстренное освобождение RAM и сокетов (`mtproxymax heal` / `auto-heal on`):** освобождает неиспользуемый страничный кэш ОС, очищает осиротевшие сокеты `TIME_WAIT` и увеличивает лимит Netfilter conntrack (`nf_conntrack_max=262144`) **без прерывания работы активных пользователей**.
-- **Масштабирование окна TCP и определение MTU (`mtproxymax tcp-fastpath on`):** включает масштабирование окна по RFC, выборочные подтверждения (SACK) и автоматическое определение MTU пути для максимальной скорости на международных каналах с переменным MTU.
-- **Автонастройка памяти (`mtproxymax ram-tune auto`):** определяет объём физической RAM и вычисляет безопасные пределы TCP-буферов чтения/записи и `min_free_kbytes`, предотвращая OOM на небольших VPS и раскрывая пропускную способность крупных серверов.
-- **Распределение обработки пакетов по ядрам (`mtproxymax cpu-tune on`):** распределяет обработку входящих зашифрованных пакетов через Linux RPS/RFS с автоматическим обнаружением ограничений контейнерных сред LXC/OpenVZ.
-- **Управление перегрузкой TCP BBRv3 и ECN (`mtproxymax bbr on`):** включает Google TCP BBRv3 (`bbr`), Fair Queueing (`fq`), уведомления о перегрузке (`tcp_ecn=1`) и буферы до 16 МБ с сохранением sysctl-настроек с учётом контейнерной среды.
-- **Дополнение пакетов и изменение отпечатков против DPI (`mtproxymax shield on`):** рандомизирует ограничение TCP MSS (`1360`) в цепочках FORWARD, OUTPUT и POSTROUTING и распределение размеров пакетов FakeTLS для обхода эвристик GFW, ТСПУ и TIC.
-- **Маскировка и защита от активных проверок (`mtproxymax cover-shield on`):** перенаправляет HTTP GET не от MTProto и некорректные TLS-рукопожатия на резервный сайт (например, `https://cloudflare.com`) без сброса TCP-сокета.
+- **Layer-4 Load Balancer Exporter (`mtproxymax export-lb [haproxy|nginx]`):** Generates production-ready HAProxy (`haproxy.cfg`) and Nginx Stream (`nginx.conf`) configuration snippets configured with TCP pass-through and PROXY Protocol v2 headers.
+- **Cloudflare Dynamic DNS (`mtproxymax ddns set <token> <zone_id> <record>`):** Automatically detects server public IP changes and updates Cloudflare DNS A records via API v4 (`mtproxymax ddns run`).
+- **Forensic Diagnostics Dump (`mtproxymax diag-dump`):** Bundles kernel networking state, routing tables, active iptables rules, container inspect logs, and a redacted settings archive into a clean `.tar.gz` diagnostic package.
+- **Configuration Snapshots (`mtproxymax snapshot create <name>`):** Creates self-contained point-in-time tarball snapshots of all proxy settings, secrets, upstreams, domain pools, and geoblocks with one-click restoration (`mtproxymax snapshot restore <name>`).
 
 ---
 
-### 🏢 Коммерческие функции: ваучеры, роли и портал состояния
+### ⚡ Operations, Briefings & Onboarding Suite
 
-- **Ваучеры и подарочные коды (`mtproxymax voucher [create|list|revoke|redeem]`):** продажа или раздача доступа к прокси без ручной работы администратора с каждым пользователем.
-  - Пакетное создание защищённых кодов формата `MTP-XXXX-XXXX` с настраиваемой квотой (например, `10G`, `50G`, `0` — без ограничений) и сроком действия (например, `30` дней).
-  - Ваучеры хранятся в `${INSTALL_DIR}/vouchers.conf` с данными аудита: состоянием (`ACTIVE`, `REDEEMED`, `REVOKED`), временем создания и меткой активировавшей код учётной записи.
-  - Пользователи и реселлеры могут активировать код локально через `mtproxymax voucher redeem <code> [label]` или в Telegram командой `/redeem <code>`. Сразу создаётся отдельный ключ с заданной квотой и ограничениями устройств.
-- **Ролевое управление доступом (`mtproxymax admin [add|remove|list]`):** несколько уровней административных прав в Telegram-боте.
-  - Иерархия ролей хранится в `${INSTALL_DIR}/admins.conf`:
-    - **`superadmin`**: полный доступ ко всем 21 административным командам, включая перезапуск движка (`/mp_restart`), экстренную защиту (`/mp_lockdown`), удаление через бота (`/mp_remove`) и самообновление (`/mp_update`).
-    - **`reseller`**: коммерческое управление, ограниченное активацией ваучеров (`/redeem`), пакетным созданием (`/mp_voucher create <cnt> <qta> <dys>`) и просмотром их списка (`/mp_voucher list`). Опасные команды движка блокируются, а нарушения записываются в журнал безопасности.
-    - **Любое другое значение** считается ошибкой конфигурации и приводит к отказу в доступе: опечатка в `admins.conf` не открывает дополнительные права.
-- **Отдельный портал самообслуживания (`mtproxymax portal [enable|disable|port|generate|serve|status]`):** лёгкая статическая веб-панель без зависимостей для пользователей и прозрачного отображения времени работы.
-  - Создаёт адаптивную HTML-страницу (`index.html`) в тёмной теме с эффектом матового стекла в `${INSTALL_DIR}/portal/`.
-  - При периодическом обслуживании (`sweep()`) MTProxyMax экспортирует актуальные системные метрики (`status.json`) и обезличенную статистику рейтинга пользователей (`users.json`).
-  - В браузере можно посмотреть время работы прокси, расход трафика сервера, число подключений и использование индивидуальной квоты без открытия административных интерфейсов и выполнения серверных скриптов.
-  - Портал можно запустить встроенным тестовым сервером переднего плана (`mtproxymax portal serve`) или разместить за Nginx/HAProxy либо в Cloudflare Pages.
+- **Direct Telegram Cloud Backups (`mtproxymax backup send-tg`):** Pushes your latest server backup archive (`.tar.gz`) directly to your Telegram bot admin chat as a file attachment, ensuring offsite disaster recovery even if your VPS disk fails.
+- **Morning Executive Briefing (`mtproxymax daily-report on 08:00`):** Schedules an automated morning summary message detailing 24h traffic volume, active user counts, SYN shield interceptions, and expiring subscriptions.
+- **SSH Intrusion Shield (`mtproxymax ssh-shield on`):** Configures fail2ban kernel jails tuned specifically for MTProto proxy servers, automatically banning IP addresses attempting SSH password brute-force attacks.
+- **Network Quality Grade (`mtproxymax net-grade`):** Benchmarks DNS ping timers and TCP reachability against Telegram Datacenters (DC1–DC5) to calculate an instant server quality grade (`A+`, `A`, `B`, `C/D`).
+- **Smart User Onboarding Wizard (`mtproxymax onboard <label>`):** Step-by-step interactive command automating user creation, device tier assignment, monthly data quotas, expiry windows, and Telegram QR link generation.
 
 ---
 
-### 🛡️ Автоматическая защита от сетевых сканеров
+### 🚀 Performance, Diagnostics & Self-Healing Suite
 
-- **Блокировка Shodan и Censys (`mtproxymax scanner-shield [enable|disable|update|status]`):** защищает прокси от автоматизированных систем обнаружения и нежелательного сканирования интернета.
-  - Создаёт высокопроизводительные хеш-наборы в памяти ядра (таблица `ipset` с именем `mtproxymax-scanners`) ёмкостью до 65 536 CIDR-подсетей.
-  - Автоматически загружает и блокирует известные подсети массового сканирования, включая Shodan, Censys и Shadowserver: `162.142.125.0/24`, `167.94.138.0/24`, `71.6.135.0/24` и другие.
-  - Пакеты со сканирующих IP молча отбрасываются в Netfilter до попадания в Docker-контейнер и достижения порогов SYN cookie, скрывая сервер от систем обнаружения.
-
----
-
-### 🌐 Высокопроизводительная сеть и безопасность
-
-- **Экономичный режим (`mtproxymax eco-mode [on|off|status]`):** уменьшает TCP-буферы ядра Linux (`rmem_max`/`wmem_max` до `131072`), снижая расход RAM до 45% для стабильной работы на серверах с 256/512 МБ. Фоновый контроль повторно применяет настройки при обслуживании.
-- **Перенаправление активных проверок (`mtproxymax decoy [set|clear|status]`):** направляет HTTP/TLS-сканеры без действительного ключа MTProto на заданный резервный URL или приманку средствами ядра.
-- **Географические ограничения (`mtproxymax geofence [add|remove|list]`):** быстрая блокировка или разрешение CIDR-подсетей отдельных стран на основе автоматически получаемых данных Cloudflare/GeoIP.
-- **Испытания устойчивости сети (`mtproxymax chaos-test [latency|packet-loss|disconnect]`):** моделирует высокую задержку, потерю пакетов и обрывы через Linux `tc netem` для проверки переподключений клиентов и переключения при сбоях.
-- **Оценка репутации IP (`mtproxymax ip-score [ip|self]`):** проверяет публичный IP сервера по глобальным спискам блокировок (Spamhaus, AbuseIPDB, списки цензуры России и Ирана) и вычисляет оценку его репутации.
-
----
-
-### 👥 Расширенное управление пользователями и квотами
-
-- **Общие пулы квот (`mtproxymax pool [create|add|remove|list]`):** объединяет несколько учётных записей под общей квотой, например 100 ГБ на команду из 5 человек. При исчерпании лимита все ссылки участников приостанавливаются без потока повторных уведомлений.
-- **Календарное управление квотами (`mtproxymax calendar [weekend|holiday|status]`):** предоставляет бесплатный неучитываемый трафик в выходные и праздники, включая автоматический праздничный бонус +5 ГБ при расчёте трафика.
-- **Действия по истечении доступа (`mtproxymax expire-action [disable|delete|archive]`):** задаёт автоматическую политику для просроченных учётных записей: временное отключение, перенос в архив или окончательное удаление.
-- **Интерактивный рейтинг (`mtproxymax top-users [traffic|conns|speed]`):** ASCII-таблица в реальном времени с лидерами по расходу трафика, одновременным соединениям и скорости передачи.
-- **Уведомления о всплесках трафика (`mtproxymax traffic-alert [set|clear|status]`):** отслеживает текущие скорости и сразу предупреждает, если учётная запись превышает заданный порог, например 10 ГБ/час.
+- **Linux Kernel TCP BBR & Fast Open Booster (`mtproxymax tcp-boost on`):** Activates Google's TCP BBR congestion control algorithm and TCP Fast Open (`tfo=3`), doubling transfer speeds and eliminating packet-loss bottlenecks on international routes.
+- **Dead Mobile Socket Keep-Alive Reaper (`mtproxymax tcp-clean on`):** Configures aggressive low-latency kernel keep-alive timers (`keepalive_time=300`, `intvl=15`), automatically detecting and purging orphaned mobile 4G/LTE sockets within 45 seconds.
+- **Ultra-Low Latency Kernel Socket Booster (`mtproxymax socket-boost on`):** Expands listen backlog queues (`somaxconn=65535`) and optimizes buffer limits (`notsent_lowat=16384`) to eliminate packet bloat and reduce TCP handshake delays under burst concurrency.
+- **Dynamic FakeTLS Record Padding & Jitter (`mtproxymax tls-pad auto`):** Randomizes certificate payload lengths between 1500 and 3800 bytes dynamically during periodic maintenance cycles, evading AI/ML statistical packet size analysis.
+- **Active Probe Honeypot & Decoy Protection (`mtproxymax honeypot on`):** Engages kernel redirection posture so active censorship crawler bots without a valid MTProto secret are cleanly routed to your decoy cover domain.
+- **Subscription Leak & Account Sharing Scanner (`mtproxymax leak-scan 3`):** Scans active connection tables to identify and flag subscription keys connecting from more than 3 distinct IP subnets simultaneously.
+- **TLS Cover Domain Health & Verifier (`mtproxymax cert-check <domain>`):** Performs a deep SSL/TLS inspection of your FakeTLS cover domain (`PROXY_DOMAIN`), verifying HTTP status codes, expiration dates, and issuer chains to prevent ISP blocking.
+- **One-Line VPS Cloner & Replication Bundle (`mtproxymax clone-link` / `bootstrap`):** Compresses your upstreams, tuning profiles, ad-tag, and templates into a secure Base64 string and outputs a single one-line command (`mtproxymax bootstrap <base64>`) that mirrors your server onto any new node in 5 seconds.
+- **Emergency RAM & Socket Auto-Healer (`mtproxymax heal` / `auto-heal on`):** Reclaims dead OS pagecache, prunes orphaned `TIME_WAIT` sockets, and expands Netfilter conntrack headroom (`nf_conntrack_max=262144`) with **zero disruption to active proxy users**.
+- **TCP Fast-Path Window Scaling & MTU Probing (`mtproxymax tcp-fastpath on`):** Enables RFC-compliant TCP window scaling, Selective Acknowledgments (SACK), and automatic Path MTU discovery to maximize throughput on variable-MTU international links.
+- **Dynamic RAM Auto-Tuning (`mtproxymax ram-tune auto`):** Inspects total server physical memory and auto-calculates safe TCP read/write buffer ceilings and kernel `min_free_kbytes` thresholds, preventing OOM crashes on small VPS while unlocking full throughput on large servers.
+- **Multi-Core IRQ Packet Spreading (`mtproxymax cpu-tune on`):** Distributes incoming encrypted packet processing across all available CPU cores via Linux Receive Packet Steering (RPS/RFS), with automatic containerization fallback detection for LXC/OpenVZ environments.
+- **TCP BBRv3 Congestion Control & ECN Auto-Tuning (`mtproxymax bbr on`):** Activates Google's TCP BBRv3 congestion control (`bbr`), Fair Queueing (`fq`), Explicit Congestion Notification (`tcp_ecn=1`), and 16MB buffer expansion with container-resilient sysctl persistence.
+- **Anti-DPI Packet Padding & Fingerprint Scrubbing (`mtproxymax shield on`):** Randomizes TCP MSS clamping (`1360`) across FORWARD, OUTPUT, and POSTROUTING chains while scrubbing FakeTLS packet size distributions to defeat GFW, TSPU, and TIC DPI heuristics.
+- **Reverse-Proxy Cover Shield & Active Probe Defense (`mtproxymax cover-shield on`):** Engages an active scanner trapdoor that seamlessly forwards non-MTProto HTTP GET requests and invalid TLS handshakes directly to a fallback website (e.g., `https://cloudflare.com`) without resetting the TCP socket.
 
 ---
 
-### 🚀 DevOps и автоматизация нескольких серверов
+### 🏢 Enterprise Commercial Suite (Vouchers, RBAC & Status Portal)
 
-- **Экстренный перенос сервера (`mtproxymax evacuate [ip|bundle]`):** упаковывает ключи, пулы и конфигурацию в зашифрованный переносимый архив и передаёт его через SSH/rsync на резервный сервер менее чем за 5 секунд.
-- **Многоканальные вебхуки (`mtproxymax webhook [add|remove|list|test]`):** отправляет уведомления в Discord, Slack, Mattermost и DingTalk при включении защиты, переключении серверов и превышении квот. Используется JSON по RFC с экранированием и удалением Markdown-разметки.
-- **Листы QR-кодов для печати (`mtproxymax qr-sheet [export|pdf]`):** создаёт оформленный HTML/PDF-каталог QR-кодов пользователей и инструкций подключения для раздачи на бумаге или подключения сотрудников.
-- **Ежемесячные отчёты аудита (`mtproxymax export-report [csv|html|json]`):** формирует отчёты для контроля и расчётов с месячным расходом трафика, активными пользователями и временем работы системы.
-- **Оптимизация маршрутов к Telegram (`mtproxymax dc-optimize [dc1-dc5|auto]`):** измеряет время TCP-рукопожатий с DC1–DC5 и настраивает таблицы маршрутизации ядра и ограничение MSS для оптимального регионального маршрута.
+- **Commercial Voucher & Gift Code System (`mtproxymax voucher [create|list|revoke|redeem]`):** Monetize or distribute proxy access cleanly without requiring manual administrator intervention for each user.
+  - Generates secure batch voucher codes formatted as `MTP-XXXX-XXXX` with customizable data quotas (e.g., `10G`, `50G`, `0` for unlimited) and validity durations (e.g., `30` days).
+  - Vouchers are tracked in `${INSTALL_DIR}/vouchers.conf` with full audit metadata (`ACTIVE`, `REDEEMED`, `REVOKED`, creation timestamp, and redemption account label).
+  - Users or resellers can redeem vouchers locally via `mtproxymax voucher redeem <code> [label]` or remotely via Telegram bot command `/redeem <code>`, instantly provisioning a dedicated proxy secret with exact quota and device ceilings enforced.
+- **Role-Based Access Control (`mtproxymax admin [add|remove|list]`):** Multi-tier administrative access governance for your Telegram management bot.
+  - Configures role hierarchies stored in `${INSTALL_DIR}/admins.conf`:
+    - **`superadmin`**: Full access to all 21 administrative commands, including destructive engine restarts (`/mp_restart`), emergency lockdowns (`/mp_lockdown`), bot removals (`/mp_remove`), and self-updates (`/mp_update`).
+    - **`reseller`**: Delegated commercial management rights restricted to voucher redemption (`/redeem`), voucher batch generation (`/mp_voucher create <cnt> <qta> <dys>`), and voucher inventory auditing (`/mp_voucher list`). Destructive engine commands are automatically blocked with security violation logging.
+    - **Any other value** is treated as a misconfiguration and refused rather than granted access, so a typo in `admins.conf` fails closed.
+- **Decoupled Self-Service Status Portal (`mtproxymax portal [enable|disable|port|generate|serve|status]`):** Lightweight, zero-dependency static web dashboard designed for client self-service and transparent uptime reporting.
+  - Generates an ultra-responsive, modern dark-mode glassmorphism HTML page (`index.html`) stored in `${INSTALL_DIR}/portal/`.
+  - During periodic engine sweeps (`sweep()`), MTProxyMax automatically exports real-time system metrics (`status.json`) and anonymized user leaderboard statistics (`users.json`).
+  - Clients can view live proxy uptime, server bandwidth consumption, active connection counts, and individual quota progress directly from any browser without exposing administrative interfaces or requiring backend script execution.
+  - Can be served via built-in foreground test server (`mtproxymax portal serve`) or hosted instantly behind Nginx/HAProxy/Cloudflare Pages.
 
 ---
 
-### 🩺 Диагностика, отказоустойчивость и TUI
+### 🛡️ Automated Hostile Threat Scanner Shield
 
-- **Панель телеметрии (`mtproxymax live-diag`):** ASCII-панель в реальном времени с графиками трафика, загрузкой CPU/RAM, числом подключений и срабатываниями SYN-защиты.
-- **Автоматический поиск SNI (`mtproxymax auto-sni [on|off|status]`):** проверяет доступность и скорость авторитетных TLS-доменов маскировки в вашем регионе и автоматически заменяет заблокированные SNI.
-- **Контроль вышестоящих прокси (`mtproxymax failover [on|off|status]`):** каждую минуту проверяет их работоспособность и переключает прокси или IP серверов после 3 последовательных неудачных проверок ping.
-- **Рандомизация отпечатков TLS (`mtproxymax cert-shield [on|off|status]`):** каждые 12 часов меняет порядок расширений TLS, баннеры ALPN и интервалы дополнения записей для обхода статистического анализа пакетов средствами ИИ/МО.
-- **Цветовые темы TUI (`mtproxymax tui-theme [dark|matrix|cyan|classic]`):** выбор оформления ASCII-интерфейса: зелёная «Матрица», яркий голубой, тёмная тема или классическое ретро.
+- **Proactive Shodan & Censys Threat Blocking (`mtproxymax scanner-shield [enable|disable|update|status]`):** Protects your proxy server from automated Internet-wide discovery engines and hostile security scanners.
+  - Initializes high-performance kernel memory hash sets (`ipset` table `mtproxymax-scanners`) with capacity for up to 65,536 network CIDRs.
+  - Automatically imports and blacklists well-known hostile mass scanning subnets (including Shodan, Censys, and Shadowserver probe networks such as `162.142.125.0/24`, `167.94.138.0/24`, `71.6.135.0/24`, etc.).
+  - Incoming packets from scanner IPs are silently dropped at the Netfilter kernel boundary before reaching the Docker proxy container or triggering SYN cookie thresholds, keeping your server completely invisible to threat discovery feeds.
 
 ---
 
-### 🚨 Действия при блокировке прокси провайдером
+### 🌐 High-Performance Networking & Security Suite
 
-Если пользователи сообщают о внезапных обрывах или сильном замедлении из-за DPI во время ограничений интернета, выполните три шага:
+- **Lightweight Eco-Mode (`mtproxymax eco-mode [on|off|status]`):** Optimizes Linux kernel TCP memory allocations (`rmem_max`/`wmem_max` to `131072`), reducing RAM footprint by up to 45% for stable operation on 256MB/512MB micro-servers. Persistent watchdog re-enforces buffers during background sweeps.
+- **Active Probe Decoy Routing (`mtproxymax decoy [set|clear|status]`):** Configures kernel redirection so unauthorized HTTP/TLS scanners lacking a valid MTProto secret are cleanly forwarded to a custom fallback URL or honeypot.
+- **Country Geo-Fencing (`mtproxymax geofence [add|remove|list]`):** High-speed CIDR country-level firewall blocking or allowing specific nation-state subnets via automated Cloudflare/GeoIP feeds.
+- **Network Resilience Chaos Engineering (`mtproxymax chaos-test [latency|packet-loss|disconnect]`):** Simulates high latency, packet loss, or abrupt socket drops using Linux `tc netem` to verify client reconnect resilience and failover behavior.
+- **IP Reputation & Clean-Score Inspector (`mtproxymax ip-score [ip|self]`):** Checks server public IP against global blacklists (Spamhaus, AbuseIPDB, Russian/Iranian censorship blocks) to calculate an instant clean score.
 
-1. **Включите экстренную защиту и проверьте её оценку:**
+---
+
+### 👥 Advanced User & Quota Governance Suite
+
+- **Shared Quota Pools (`mtproxymax pool [create|add|remove|list]`):** Group multiple member accounts under a single shared bandwidth ceiling (e.g. 100GB shared among a 5-person team). When the pool limit is reached, all member links are automatically paused without spamming alerts.
+- **Dynamic Calendar Quota Scheduling (`mtproxymax calendar [weekend|holiday|status]`):** Provide unmetered free data passes on weekends or major holidays (with automatic +5GB Holiday Airdrop integration into traffic calculations).
+- **Custom Expiry Action Policies (`mtproxymax expire-action [disable|delete|archive]`):** Define automated lifecycle policies for expired accounts — choose between temporary disablement, soft-deletion to archive, or permanent purging.
+- **Real-Time Interactive Leaderboard (`mtproxymax top-users [traffic|conns|speed]`):** Live ASCII ranking display identifying top bandwidth consumers, most active concurrent connections, and highest real-time transfer rates.
+- **Automated High-Velocity Traffic Alerts (`mtproxymax traffic-alert [set|clear|status]`):** Monitors rolling transfer speeds and dispatches instant warnings when a single account exceeds configurable burst thresholds (e.g. >10GB/hour).
+
+---
+
+### 🚀 Enterprise DevOps & Multi-Server Automation Suite
+
+- **1-Click Emergency Server Evacuation (`mtproxymax evacuate [ip|bundle]`):** Instantly packs all secrets, pools, and configuration files into an encrypted portable archive and transfers it via SSH/rsync to a standby backup server in under 5 seconds.
+- **Multi-Channel Enterprise Webhook Dispatcher (`mtproxymax webhook [add|remove|list|test]`):** Sends RFC-compliant, markdown-stripped, escaped JSON event notifications to Discord, Slack, Mattermost, or DingTalk when lockdowns, failovers, or quota breaches occur.
+- **Printable QR Code Onboarding Sheets (`mtproxymax qr-sheet [export|pdf]`):** Generates a styled, printable HTML/PDF catalog of user QR codes and connection instructions for physical distribution or corporate onboarding.
+- **Executive Monthly Audit Reports (`mtproxymax export-report [csv|html|json]`):** Produces comprehensive compliance and billing reports summarizing monthly bandwidth usage, active users, and system uptime.
+- **Telegram Datacenter Route Optimizer (`mtproxymax dc-optimize [dc1-dc5|auto]`):** Actively probes TCP handshake timers to Telegram DCs (DC1–DC5) and tunes kernel routing tables and MSS clamping for optimal regional routing.
+
+---
+
+### 🩺 Diagnostic, Resiliency & TUI Dashboard Suite
+
+- **Interactive Live Telemetry Dashboard (`mtproxymax live-diag`):** Real-time ASCII dashboard displaying rolling traffic graphs, CPU/RAM usage, active connection counts, and SYN shield tarpit interceptions.
+- **Autonomous SNI Cover Domain Hunter (`mtproxymax auto-sni [on|off|status]`):** Automatically scans and benchmarks high-reputation TLS cover domains in your region to replace blocked SNIs without human intervention.
+- **Autonomous Upstream Failover Watchdog (`mtproxymax failover [on|off|status]`):** Monitors upstream proxy health every minute and automatically switches upstreams or rotates backend IPs after 3 consecutive ping failures.
+- **TLS Certificate Fingerprint Randomizer (`mtproxymax cert-shield [on|off|status]`):** Dynamically mutates TLS extension ordering, ALPN banners, and record padding intervals every 12 hours to evade statistical AI/ML packet inspection.
+- **Customizable TUI Color Themes (`mtproxymax tui-theme [dark|matrix|cyan|classic]`):** Choose your preferred ASCII interface aesthetic — Cyberpunk Matrix Green, Electric Cyan, Dark Mode, or Classic Retro.
+
+---
+
+### 🚨 Censorship Emergency Playbook (When ISPs Block Your Proxy)
+
+If users report sudden connection drops or severe DPI throttling during internet disruptions, execute this 3-step recovery posture:
+
+1. **Engage Instant Lockdown & Check Posture Score:**
    ```bash
    mtproxymax lockdown on
    mtproxymax dpi-inspect
    ```
-2. **Добавьте резервные домены маскировки и порты:**
+2. **Add Backup Cover Domains & Fallback Ports:**
    ```bash
    mtproxymax domain-pool add www.microsoft.com,www.google.com
    mtproxymax port-pool add 8443
    ```
-3. **Включите автоматический контроль и ограничение скорости:**
+3. **Activate Automated Watchdog & Bandwidth Shaping:**
    ```bash
    mtproxymax cover-watchdog auto
    mtproxymax qos set 5
@@ -308,31 +312,31 @@ mtproxymax lockdown on
 
 ---
 
-### 👥 Управление ключами пользователей
+### 👥 Multi-User Secret Management
 
-Каждый пользователь получает собственный **секретный ключ** с понятной меткой:
+Each user gets their own **secret key** with a human-readable label:
 
-- **Добавление и удаление** выполняются сразу: конфигурация пересоздаётся, а прокси применяет её без полной остановки.
-- **Включение и отключение** доступа без удаления ключа.
-- **Ротация** ключа: новый ключ с прежней меткой, старая ссылка перестаёт работать.
-- **QR-коды**, которые можно сканировать прямо в Telegram.
+- **Add/remove** users instantly — config regenerates and proxy hot-reloads
+- **Enable/disable** access without deleting the key
+- **Rotate** a user's secret — new key, same label, old link stops working
+- **QR codes** — scannable directly in Telegram
 
 ---
 
-### 🔒 Индивидуальные ограничения доступа
+### 🔒 Per-User Access Control
 
-Точные ограничения, применяемые на уровне движка:
+Fine-grained limits enforced at the engine level:
 
-| Ограничение | Описание | Пример | Назначение |
+| Limit | Description | Example | Best For |
 |-------|-------------|---------|----------|
-| **Число подключений** | Одновременные TCP-соединения (~3 на устройство) | `15` | **Ограничение устройств** |
-| **Число IP** | Допустимое число уникальных IP-адресов | `5` | Защита от передачи доступа и злоупотреблений |
-| **Квота трафика** | Общий лимит трафика за весь период | `10G`, `500M` | Справедливое распределение ресурсов |
-| **Срок действия** | Автоматическое отключение после указанной даты | `2026-12-31` | Временный доступ |
+| **Max Connections** | Concurrent TCP connections (~3 per device) | `15` | **Device limiting** |
+| **Max IPs** | Unique IP addresses allowed | `5` | Anti-sharing / abuse |
+| **Data Quota** | Lifetime bandwidth cap | `10G`, `500M` | Fair usage |
+| **Expiry Date** | Auto-disable after date | `2026-12-31` | Temporary access |
 
-> **Совет:** каждое приложение Telegram открывает **~3 TCP-соединения** (по одному на DC). Для ограничения устройств умножайте их число на 3: `conns 15` ≈ не более 5 устройств. Значение ниже 5, скорее всего, помешает работе даже одного устройства. Ограничения IP менее надёжны: при смене базовой станции у мобильного устройства ненадолго появляются 2 IP, а несколько устройств в одной сети Wi-Fi используют 1 IP. Применяйте `ips` как дополнительную защиту от передачи доступа.
+> **Tip:** Each Telegram app opens **~3 TCP connections** (one per DC). So for device limiting, multiply by 3: `conns 15` ≈ max 5 devices. Setting below 5 will likely break even a single device. IP limits are less reliable because mobile users roam between cell towers (briefly showing 2 IPs for 1 device), and multiple devices behind the same WiFi share 1 IP. Use `ips` as a secondary anti-sharing measure.
 >
-> **По умолчанию трафик и квоты учитываются накопительно.** Используйте `mtproxymax secret quota-reset <label> <day>` для ежемесячного обновления квоты или `mtproxymax secret reset-traffic <label>` для ручного начала нового периода. Команда `mtproxymax traffic` показывает расход с последнего сброса каждого счётчика; общий серверный показатель `Total` не зависит от сбросов пользователей.
+> **Traffic and quotas are cumulative by default.** Use `mtproxymax secret quota-reset <label> <day>` for a recurring monthly quota period, or `mtproxymax secret reset-traffic <label>` to start a new period manually. `mtproxymax traffic` shows usage since each counter's most recent reset; its server-wide `Total` is independent from per-user resets.
 
 ```bash
 mtproxymax secret setlimits alice 100 5 10G 2026-12-31
@@ -340,203 +344,203 @@ mtproxymax secret setlimits alice 100 5 10G 2026-12-31
 
 ---
 
-### 📋 Примеры управления пользователями
+### 📋 User Management Recipes
 
 <details>
-<summary><b>Ограничение устройств пользователя (рекомендуется)</b></summary>
+<summary><b>Limit Devices Per User (Recommended)</b></summary>
 
 ```bash
-mtproxymax secret setlimit alice conns 5    # Одно устройство (~3 соединения, с запасом)
-mtproxymax secret setlimit family conns 15  # Семья — до 5 устройств
+mtproxymax secret setlimit alice conns 5    # Single device (~3 conns per device, with headroom)
+mtproxymax secret setlimit family conns 15  # Family — up to 5 devices
 ```
 
-Каждое приложение Telegram открывает ~3 TCP-соединения. Значение `conns 5` позволяет пользоваться одним устройством с запасом. Если пользователь поделится ссылкой, второе устройство упрётся в лимит.
+Each Telegram app opens ~3 TCP connections. Setting `conns 5` allows one device with headroom. If someone shares their link, the second device will hit the limit.
 
 </details>
 
 <details>
-<summary><b>Варианты ограничений устройств</b></summary>
+<summary><b>Device Limit Tiers</b></summary>
 
-| Сценарий | `conns` | `ips` (необязательно) |
+| Scenario | `conns` | `ips` (optional) |
 |----------|---------|-------------------|
-| Один человек, одно устройство | `1` | `2` (для смены сети) |
-| Один человек, несколько устройств | `3` | `5` |
-| Небольшая семья | `5` | `10` |
-| Небольшая группа / офис | `30` | `50` |
-| Публичная ссылка | `0` | `0` (без ограничений) |
+| Single person, one device | `1` | `2` (allow roaming) |
+| Single person, multiple devices | `3` | `5` |
+| Small family | `5` | `10` |
+| Small group / office | `30` | `50` |
+| Public/open link | `0` | `0` (unlimited) |
 
-> Задавайте `ips` немного выше `conns`, чтобы учитывать мобильные перемещения: при смене базовой станции у одного устройства временно могут быть 2 IP.
+> Set `ips` slightly higher than `conns` to allow for mobile roaming (cell tower switches temporarily show 2 IPs for 1 device).
 
 </details>
 
 <details>
-<summary><b>Общая ссылка с ограниченным сроком действия</b></summary>
+<summary><b>Time-Limited Sharing Link</b></summary>
 
 ```bash
 mtproxymax secret add shared-link
 mtproxymax secret setlimits shared-link 50 30 10G 2026-06-01
 ```
 
-Когда наступит дата окончания доступа, ссылка автоматически перестанет работать.
+When the expiry date hits, the link stops working automatically.
 
 </details>
 
 <details>
-<summary><b>Индивидуальные ключи (рекомендуется)</b></summary>
+<summary><b>Per-Person Keys (Recommended)</b></summary>
 
 ```bash
 mtproxymax secret add alice
 mtproxymax secret add bob
 mtproxymax secret add charlie
 
-# У каждого своя ссылка — доступ можно отозвать отдельно
-mtproxymax secret setlimit alice conns 10   # ~3 устройства
-mtproxymax secret setlimit bob conns 5     # 1 устройство
-mtproxymax secret setlimit charlie conns 15 # ~5 устройств
+# Each person gets their own link — revoke individually
+mtproxymax secret setlimit alice conns 10   # ~3 devices
+mtproxymax secret setlimit bob conns 5     # 1 device
+mtproxymax secret setlimit charlie conns 15 # ~5 devices
 ```
 
 </details>
 
 <details>
-<summary><b>Отключение, ротация и удаление</b></summary>
+<summary><b>Disable, Rotate, Remove</b></summary>
 
 ```bash
-mtproxymax secret disable bob    # Временно отключить
-mtproxymax secret enable bob     # Восстановить доступ
+mtproxymax secret disable bob    # Temporarily cut off
+mtproxymax secret enable bob     # Restore access
 
-mtproxymax secret rotate alice   # Новый ключ; старая ссылка сразу перестаёт работать
+mtproxymax secret rotate alice   # New key, old link dies instantly
 
-mtproxymax secret remove bob     # Удалить окончательно
+mtproxymax secret remove bob     # Permanent removal
 ```
 
 </details>
 
 ---
 
-### 🤖 Telegram-бот (21 команда)
+### 🤖 Telegram Bot (21 Commands)
 
-Полное управление прокси с телефона. Настройка занимает 60 секунд:
+Full proxy management from your phone. Setup takes 60 seconds:
 
 ```bash
 mtproxymax telegram setup
 ```
 
-| Команда | Описание |
+| Command | Description |
 |---------|-------------|
-| `/mp_status` | Состояние прокси, время работы, подключения |
-| `/mp_secrets` | Список всех пользователей с активными подключениями |
-| `/mp_link` | Параметры подключения и изображение QR-кода |
-| `/mp_add <label>` | Добавить пользователя |
-| `/mp_remove <label>` | Удалить пользователя |
-| `/mp_revoke <label>` | Немедленно отозвать и окончательно удалить ключ |
-| `/mp_rotate <label>` | Создать новый ключ пользователя |
-| `/mp_enable <label>` | Восстановить доступ отключённого пользователя |
-| `/mp_disable <label>` | Временно отключить пользователя |
-| `/mp_lockdown [on\|off]` | Переключить экстренный режим защиты |
-| `/mp_digest` | Просмотреть текущую сводку состояния, защиты и трафика |
-| `/mp_limits` | Показать все ограничения пользователей |
-| `/mp_setlimit` | Задать ограничения пользователя |
-| `/mp_traffic` | Статистика трафика по пользователям |
-| `/mp_upstreams` | Список цепочек прокси |
-| `/mp_health` | Запустить диагностику |
-| `/mp_restart` | Перезапустить прокси |
-| `/mp_update` | Проверить обновления |
-| `/mp_help` | Показать все команды |
+| `/mp_status` | Proxy status, uptime, connections |
+| `/mp_secrets` | List all users with active connections |
+| `/mp_link` | Get proxy details + QR code image |
+| `/mp_add <label>` | Add new user |
+| `/mp_remove <label>` | Delete user |
+| `/mp_revoke <label>` | Revoke and purge a user secret immediately |
+| `/mp_rotate <label>` | Generate new key for user |
+| `/mp_enable <label>` | Re-enable disabled user |
+| `/mp_disable <label>` | Temporarily disable user |
+| `/mp_lockdown [on\|off]` | Toggle emergency panic lockdown defensive posture |
+| `/mp_digest` | View live executive health, posture, and traffic digest box |
+| `/mp_limits` | Show all user limits |
+| `/mp_setlimit` | Set user limits |
+| `/mp_traffic` | Per-user traffic breakdown |
+| `/mp_upstreams` | List proxy chains |
+| `/mp_health` | Run diagnostics |
+| `/mp_restart` | Restart proxy |
+| `/mp_update` | Check for updates |
+| `/mp_help` | Show all commands |
 
-**Автоматические уведомления и объявления:**
-- 🚨 Включение экстренной защиты → немедленное уведомление.
-- 📢 Системные объявления (`mtproxymax broadcast <msg>`) прямо в чат администратора.
-- ⏰ Напоминания за 7 дней, 3 дня и 24 часа до истечения доступа.
-- 🔴 Прокси недоступен → мгновенное уведомление и попытка автоматического перезапуска.
-- 🟢 Прокси запущен → отправка параметров подключения и QR-кодов.
-- 📊 Периодические отчёты о трафике с выбранным интервалом.
+**Automatic alerts & announcements:**
+- 🚨 Emergency Lockdown activated → immediate posture alert
+- 📢 System Broadcasts (`mtproxymax broadcast <msg>`) sent directly to admin chat
+- ⏰ Proactive Expiry Alerts sent 7d, 3d, and 24h prior to account expiration
+- 🔴 Proxy down → instant notification + auto-restart attempt
+- 🟢 Proxy started → sends connection details + QR codes
+- 📊 Periodic traffic reports at your chosen interval
 
 ---
 
-### 🗂️ Репликация: синхронизация конфигурации Master-Slave
+### 🗂️ Replication (Master-Slave Config Sync)
 
-Автоматически поддерживайте одинаковую конфигурацию нескольких прокси-серверов. Ведущий сервер отправляет изменения ведомым через rsync+SSH с настраиваемым интервалом. Ведомые получают `secrets.conf`, `upstreams.conf`, `instances.conf` и `config.toml`; их собственные настройки роли и локальное состояние не перезаписываются.
+Keep multiple proxy servers in sync automatically. The master pushes config changes to all slaves via rsync+SSH on a configurable interval. Slaves receive `secrets.conf`, `upstreams.conf`, `instances.conf`, and `config.toml` — their own role settings and local state are never overwritten.
 
-**Для настройки достаточно двух команд:**
+**Setup takes two commands:**
 
 ```bash
-# На ведущем сервере: запустите мастер, выберите Master, добавьте ведомый сервер
+# On master — run wizard, select Master, add slave
 mtproxymax replication setup
 
-# На ведомом сервере: запустите мастер, выберите Slave
+# On slave — run wizard, select Slave
 mtproxymax replication setup
 ```
 
-**Как это работает:**
-- Ведущий сервер создаёт автономный скрипт синхронизации `/opt/mtproxymax/mtproxymax-sync.sh`.
-- Таймер systemd запускает синхронизацию каждые N секунд (по умолчанию 60).
-- При изменениях контейнер прокси на ведомом сервере автоматически перезапускается.
-- Файлы `settings.conf` и `replication.conf` всегда исключены: роль ведомого сервера не перезаписывается.
+**How it works:**
+- Master generates a self-contained sync script at `/opt/mtproxymax/mtproxymax-sync.sh`
+- A systemd timer fires every N seconds (default: 60) and runs the sync
+- On change — proxy container on slave is automatically restarted
+- `settings.conf` and `replication.conf` are always excluded — slave role is never overwritten
 
 ```bash
-mtproxymax replication status     # Роль, состояние таймера, последняя синхронизация
-mtproxymax replication sync       # Синхронизировать немедленно
-mtproxymax replication logs       # Просмотреть журнал синхронизации
-mtproxymax replication test       # Проверить SSH-доступ ко всем ведомым серверам
-mtproxymax replication promote    # Сделать ведомый сервер ведущим при сбое
+mtproxymax replication status     # Show role, timer state, last sync
+mtproxymax replication sync       # Trigger immediate sync
+mtproxymax replication logs       # View sync log
+mtproxymax replication test       # Test SSH connectivity to all slaves
+mtproxymax replication promote    # Promote slave to master (failover)
 ```
 
-**Роли:**
+**Roles:**
 
-| Роль | Описание |
+| Role | Description |
 |------|-------------|
-| **Master** | Отправляет конфигурацию ведомым по расписанию |
-| **Slave** | Получает конфигурацию только для чтения. Изменения вносятся на ведущем сервере |
-| **Standalone** | Репликация отключена (по умолчанию) |
+| **Master** | Pushes config to slaves on schedule |
+| **Slave** | Receives config, read-only. Changes must be made on master |
+| **Standalone** | Replication disabled (default) |
 
 ---
 
 
 ---
 
-### 🔗 Цепочки прокси и маршрутизация через вышестоящие серверы
+### 🔗 Proxy Chaining (Upstream Routing)
 
-Направляйте трафик через промежуточные серверы:
+Route traffic through intermediate servers:
 
 ```bash
-# Направить 20% трафика через Cloudflare WARP
+# Route 20% through Cloudflare WARP
 mtproxymax upstream add warp socks5 127.0.0.1:40000 - - 20
 
-# Направить трафик через резервный VPS
+# Route through a backup VPS
 mtproxymax upstream add backup socks5 203.0.113.50:1080 user pass 80
 
-# Поддерживаются имена хостов: движок разрешает их самостоятельно
+# Hostnames are supported (resolved by the engine)
 mtproxymax upstream add remote socks5 my-proxy.example.com:1080 user pass 50
 ```
 
-Поддерживаются **SOCKS5** (с авторизацией), **SOCKS4** и прямая маршрутизация **direct** с балансировкой по весам. В качестве адресов можно использовать IP или имена хостов.
+Supports **SOCKS5** (with auth), **SOCKS4**, and **direct** routing with weight-based load balancing. Addresses can be IPs or hostnames.
 
 <br>
 
 <details>
-<summary><b>📖 Подробное руководство: маршрутизация MTProto через V2Ray, Xray, Sing-box, WARP или Master DNS</b></summary>
+<summary><b>📖 Comprehensive Guide: How to Route MTProto Traffic through V2Ray, Xray, Sing-box, WARP, or Master DNS</b></summary>
 
 <br>
 
-Направляйте исходящий трафик Telegram (`MTProto`) через вышестоящие прокси (V2Ray, Xray, Sing-box, панели 3X-UI, Cloudflare WARP или SSH-туннели), чтобы обходить фильтрацию IP и блокировки локальных дата-центров либо строить цепочки прокси.
+Route your outgoing Telegram (`MTProto`) traffic through upstream proxy cores (V2Ray, Xray, Sing-box, 3X-UI panels, Cloudflare WARP, or SSH tunnels) to bypass IP filtering, avoid local datacenter blocks, or chain proxy connections.
 
-#### 1️⃣ Архитектура и принцип работы
-При настройке вышестоящего прокси движок `Telemt` перехватывает пользовательские подключения и передаёт исходящие рукопожатия `MTProto` через локальный или удалённый SOCKS5/SOCKS4-прокси вместо прямой отправки с публичного IP сервера.
+#### 1️⃣ Architecture & How it Works
+When an upstream proxy is configured, the `Telemt` engine intercepts user connections and forwards the upstream `MTProto` handshakes directly through your local/remote SOCKS5/SOCKS4 proxy instead of sending them directly from the server's public IP.
 
 ```text
-┌───────────────────┐        MTProto         ┌────────────────────┐     Туннель SOCKS5     ┌─────────────────────────┐        MTProto         ┌────────────────────┐
-│  Клиент Telegram  │───────────────────────►│  Ядро MTProxyMax   │───────────────────────►│   Локальный V2Ray/Xray  │───────────────────────►│  Серверы Telegram  │
-│   (телефон / ПК)  │     входящий :443      │  (движок Telemt)   │     127.0.0.1:1080     │ (выход к ретранслятору) │  обход блокировок IP   │  (149.154.xxx.xx)  │
-└───────────────────┘                        └────────────────────┘                        └─────────────────────────┘                        └────────────────────┘
+┌─────────────────┐       MTProto        ┌──────────────────┐      SOCKS5 Tunnel     ┌───────────────────────┐       MTProto        ┌──────────────────┐
+│ Telegram Client ├─────────────────────►│ MTProxyMax Core  ├───────────────────────►│ Local V2Ray/Xray Core │─────────────────────►│ Telegram Servers │
+│   (App/Desktop) │    inbound :443      │ (Telemt Engine)  │     127.0.0.1:1080     │  (Outbound to Relay)  │  Bypasses IP Blocks  │ (149.154.xxx.xx) │
+└─────────────────┘                      └──────────────────┘                        └───────────────────────┘                      └──────────────────┘
 ```
 
-#### 2️⃣ Пошаговая настройка
+#### 2️⃣ Step-by-Step Setup
 
-##### Шаг A: создайте входящий SOCKS5-порт в вашем прокси-движке
-Чтобы `MTProxyMax` мог передавать трафик, ваш прокси-движок должен прослушивать локальный порт, например `1080` на `127.0.0.1`.
+##### Step A: Create an Inbound SOCKS5 Listener on your Proxy Engine
+Before `MTProxyMax` can forward traffic, your proxy core must listen on a local port (e.g., `1080` on `127.0.0.1`).
 
-* **В V2Ray / Xray / Sing-box (`config.json`):**
-  Добавьте входящее подключение протокола `socks` к существующим настройкам входящих соединений:
+* **In V2Ray / Xray / Sing-box (`config.json`):**
+  Add a `socks` protocol inbound alongside your existing inbound configurations:
   ```json
   {
     "inbounds": [
@@ -553,350 +557,350 @@ mtproxymax upstream add remote socks5 my-proxy.example.com:1080 user pass 50
     ]
   }
   ```
-  *(Если конфигурация V2Ray/Xray направляет определённые теги на определённые выходы, убедитесь, что правила маршрутизации направляют `"socks-inbound"` на нужный выход ретранслятора.)*
+  *(If your V2Ray/Xray config routes specific tags to specific outbounds, make sure routing rules direct `"socks-inbound"` to your preferred relay outbound).*
 
-* **В панелях 3X-UI / X-UI:**
-  1. Откройте **Inbounds** → нажмите **Add Inbound**.
-  2. **Protocol:** выберите `SOCKS`.
-  3. **Listen IP:** укажите `127.0.0.1`, чтобы принимать только локальный трафик MTProxyMax.
-  4. **Port:** укажите `1080` или другой порт.
-  5. **Authentication:** оставьте пустым либо задайте имя пользователя и пароль.
-  6. Нажмите **Create** и убедитесь, что движок успешно перезапустился.
+* **In 3X-UI / X-UI Panels:**
+  1. Go to **Inbounds** → Click **Add Inbound**.
+  2. **Protocol:** Select `SOCKS`.
+  3. **Listen IP:** Enter `127.0.0.1` (so it only accepts local traffic from MTProxyMax).
+  4. **Port:** Enter `1080` (or any custom port).
+  5. **Authentication:** Leave blank (or set a username/password if desired).
+  6. Click **Create** and ensure the core restarts cleanly.
 
-* **С Cloudflare WARP (`wireproxy` / `warp-cli`):**
-  Если WARP работает локально на порту `40000`, MTProxyMax может направлять трафик прямо на `127.0.0.1:40000`.
+* **With Cloudflare WARP (`wireproxy` / `warp-cli`):**
+  If running WARP locally on port `40000`, MTProxyMax can route directly into it: `127.0.0.1:40000`.
 
-* **Через SSH-туннель к удалённому серверу:**
-  Создайте локальный зашифрованный SOCKS5-туннель к VPS с незаблокированным IP:
+* **With SSH Tunneling (Remote Relay):**
+  Create an encrypted local SOCKS5 tunnel pointing to a clean upstream VPS:
   ```bash
   ssh -f -N -D 127.0.0.1:1080 -o ServerAliveInterval=60 user@clean-vps-ip.example.com
   ```
 
-##### Шаг B: подключите MTProxyMax к вышестоящему прокси
-Когда SOCKS5-порт (`127.0.0.1:1080`) готов, подключите к нему `MTProxyMax` через CLI или интерактивное меню терминала:
+##### Step B: Connect MTProxyMax to the Upstream Listener
+Once your SOCKS5 port (`127.0.0.1:1080`) is ready, connect `MTProxyMax` to it using the CLI or the interactive terminal menu:
 
-* **Способ 1: командная строка (рекомендуется)**
+* **Method 1: Terminal CLI (Recommended)**
   ```bash
-  # Синтаксис команды:
+  # Command syntax:
   # mtproxymax upstream add <label> <socks5|socks4|direct> <host:port> [username] [password] [weight] [interface]
   
-  # Пример 1: локальный SOCKS5-прокси без авторизации (V2Ray / X-UI)
+  # Example 1: Local unauthenticated SOCKS5 proxy (V2Ray / X-UI)
   mtproxymax upstream add v2ray-tunnel socks5 127.0.0.1:1080 "" "" 10
 
-  # Пример 2: локальный SOCKS5-прокси с авторизацией
+  # Example 2: Local authenticated SOCKS5 proxy
   mtproxymax upstream add secure-relay socks5 127.0.0.1:1080 myuser mypass 10
 
-  # Пример 3: 30% трафика через WARP, 70% напрямую (балансировка нагрузки)
+  # Example 3: Route 30% of traffic via WARP and 70% via direct IP (Load Balancing)
   mtproxymax upstream add direct-route direct - - - 70
   mtproxymax upstream add warp-route socks5 127.0.0.1:40000 "" "" 30
   ```
 
-* **Способ 2: интерактивное меню TUI**
-  1. Запустите `mtproxymax` в терминале.
-  2. Нажмите `[r]`, чтобы открыть **Upstream Proxy / Outbound Routing**.
-  3. Выберите **Add Upstream**.
-  4. Введите метку (`v2ray-tunnel`), тип (`socks5`) и адрес (`127.0.0.1:1080`).
+* **Method 2: Interactive TUI Menu**
+  1. Run `mtproxymax` in your terminal.
+  2. Press `[r]` to open **Upstream Proxy / Outbound Routing**.
+  3. Select **Add Upstream**.
+  4. Enter your label (`v2ray-tunnel`), type (`socks5`), and address (`127.0.0.1:1080`).
 
-##### Шаг C: проверьте соединение
-После добавления вышестоящего прокси проверьте задержку и активные цепочки маршрутизации:
+##### Step C: Verify & Test Connectivity
+After adding an upstream, test live latency and check active routing chains:
 ```bash
-# Показать все зарегистрированные вышестоящие прокси и их веса
+# View all registered upstreams and their weights
 mtproxymax upstream list
 
-# Проверить TCP/MTProto-рукопожатие через вышестоящий прокси в реальном времени
+# Perform a real-time TCP/MTProto handshake test over the upstream
 mtproxymax upstream test v2ray-tunnel
 ```
 
-#### 3️⃣ Дополнительные советы и автоматический контроль работоспособности
-* **Автоматическое переключение (`mtproxymax failover on`):** включите встроенную службу контроля. Если V2Ray/WARP отключится или начнёт терять много пакетов, `MTProxyMax` обнаружит сбой за 30 секунд и переключится на резервный прокси либо прямой маршрут без разрыва активных пользовательских соединений.
-* **MasterDNS и собственные DNS-серверы:** если вышестоящий прокси использует особую конфигурацию DNS или MasterDNS, MTProxyMax автоматически применяет `socks5h://` при разрешении адресов удалённых дата-центров Telegram через цепочку SOCKS5, обеспечивая совместимость с удалёнными DNS-серверами.
+#### 3️⃣ Pro-Tips & Autonomous Health Watchdog
+* **Autonomous Failover (`mtproxymax failover on`):** Enable our built-in watchdog! If your V2Ray/WARP upstream drops or experiences high packet loss, `MTProxyMax` will automatically detect the failure within 30 seconds and failover cleanly to backup upstreams or direct routing without dropping active user connections.
+* **MasterDNS & Custom Resolvers:** If your upstream uses a custom DNS or MasterDNS configuration, MTProxyMax automatically uses `socks5h://` protocol internally when resolving remote Telegram datacenter IPs through your SOCKS5 chain, ensuring full compatibility with remote DNS resolvers.
 
 </details>
 
 ---
 
-### 📊 Мониторинг трафика в реальном времени
+### 📊 Real-Time Traffic Monitoring
 
-Метрики Prometheus предоставляют фактическую статистику по каждому пользователю:
+Prometheus metrics give you real per-user stats:
 
 ```bash
-mtproxymax traffic       # Статистика по пользователям
-mtproxymax status        # Общая сводка с числом подключений
+mtproxymax traffic       # Per-user breakdown
+mtproxymax status        # Overview with connections count
 ```
 
-- Число отправленных и полученных байтов каждого пользователя.
-- Активные подключения каждого пользователя.
-- Накопительный учёт с сохранением между перезапусками.
+- Bytes uploaded/downloaded per user
+- Active connections per user
+- Cumulative tracking across restarts
 
 ---
 
-### 🌍 Геоблокировка
+### 🌍 Geo-Blocking
 
 ```bash
-mtproxymax geoblock add ir    # Заблокировать Иран
-mtproxymax geoblock add cn    # Заблокировать Китай
-mtproxymax geoblock list      # Показать заблокированные страны
+mtproxymax geoblock add ir    # Block Iran
+mtproxymax geoblock add cn    # Block China
+mtproxymax geoblock list      # See blocked countries
 ```
 
-Списки CIDR-подсетей блокируются через iptables: трафик отбрасывается до попадания в прокси.
+IP-level CIDR blocklists enforced via iptables — traffic is dropped before reaching the proxy.
 
 ---
 
-### 💰 Монетизация через рекламный тег
+### 💰 Ad-Tag Monetization
 
 ```bash
 mtproxymax adtag set <hex_from_MTProxyBot>
 ```
 
-Получите рекламный тег у [@MTProxyBot](https://t.me/MTProxyBot). Пользователи видят закреплённый канал, а вы зарабатываете на прокси.
+Get your ad-tag from [@MTProxyBot](https://t.me/MTProxyBot). Users see a pinned channel — you earn from the proxy.
 
 ---
 
-### ⚙️ Управление движком
+### ⚙️ Engine Management
 
 ```bash
-mtproxymax engine status              # Текущая версия движка
-mtproxymax engine rebuild             # Принудительно пересобрать образ движка
-mtproxymax rebuild                    # Принудительно собрать из исходников
+mtproxymax engine status              # Current engine version
+mtproxymax engine rebuild             # Force rebuild engine image
+mtproxymax rebuild                    # Force rebuild from source
 ```
 
-Движок обновляется через `mtproxymax update`. Готовые Docker-образы для amd64 и arm64 загружаются автоматически. При недоступности образа выполняется сборка из исходников.
+Engine updates are delivered through `mtproxymax update`. Pre-built multi-arch Docker images (amd64 + arm64) are pulled automatically. Source compilation is the automatic fallback.
 
 ---
 
-### 🌐 Собственные URL Telegram для регионов с ограничениями
+### 🌐 Custom Telegram URLs (Restricted Regions)
 
-В регионах, где заблокирован `core.telegram.org`, движок может получать конфигурацию прокси с собственного зеркала:
+For regions where `core.telegram.org` is blocked, the engine can fetch proxy configuration from a custom mirror:
 
 ```bash
-mtproxymax tg-urls                                                    # Показать текущие URL
+mtproxymax tg-urls                                                    # Show current URLs
 mtproxymax tg-urls set secret https://mirror.example.com/getProxySecret
 mtproxymax tg-urls set config-v4 https://mirror.example.com/getProxyConfig
 mtproxymax tg-urls set config-v6 https://mirror.example.com/getProxyConfigV6
-mtproxymax tg-urls clear                                              # Восстановить значения по умолчанию
+mtproxymax tg-urls clear                                              # Reset to defaults
 ```
 
-Также доступно в **TUI: Settings > [u] Custom Telegram URLs**.
+Also available in **TUI: Settings > [u] Custom Telegram URLs**.
 
 ---
 
-### 🩺 Проверка и диагностика
+### 🩺 Doctor & Diagnostics
 
-Одна команда проверяет Docker, движок, порт, метрики, TLS-сертификат, ключи, место на диске и Telegram-бота:
+Single command that checks everything — Docker, engine, port, metrics, TLS cert, secrets, disk space, Telegram bot:
 
 ```bash
 mtproxymax doctor
 ```
 
-Более точечные проверки:
+More targeted checks:
 
 ```bash
-mtproxymax port-check     # Проверить доступность порта извне
-mtproxymax connections    # Активные соединения по пользователям
-mtproxymax uptime         # Состояние одной строкой для скриптов
-mtproxymax config         # Показать текущую конфигурацию движка
+mtproxymax port-check     # Test if port is reachable from outside
+mtproxymax connections    # Live active connections per user
+mtproxymax uptime         # One-line status (scriptable)
+mtproxymax config         # Display current engine config
 ```
 
 ---
 
-### 💾 Профили конфигурации
+### 💾 Config Profiles
 
-Сохраняйте и восстанавливайте конфигурацию целиком (настройки, ключи и вышестоящие прокси) в виде именованных снимков. Удобно для переключения между режимами маскировки, отладки и рабочей эксплуатации:
+Save and restore entire configurations (settings + secrets + upstreams) as named snapshots. Useful for switching between stealth/debug/production setups:
 
 ```bash
-mtproxymax profile save stealth       # Сохранить текущую конфигурацию
-mtproxymax profile list               # Показать сохранённые профили
-mtproxymax profile load stealth       # Восстановить и автоматически перезапустить
+mtproxymax profile save stealth       # Snapshot current config
+mtproxymax profile list               # List saved profiles
+mtproxymax profile load stealth       # Restore + auto-restart
 mtproxymax profile delete stealth
 ```
 
 ---
 
-### 📦 Массовые операции и поиск
+### 📦 Bulk Operations & Search
 
-Управляете большим числом пользователей? Эти команды подходят для сотен ключей:
+Managing many users? These commands scale to hundreds of secrets:
 
 ```bash
-mtproxymax secret info <label>              # Полные сведения о пользователе
-mtproxymax secret search <query>            # Поиск по метке или заметкам
-mtproxymax secret top [traffic|conns]       # Текущие 5 лидеров
-mtproxymax secret sort [traffic|conns|date|name]  # Изменить порядок списка
-mtproxymax secret stats                     # Сводка: трафик, квоты, доля истекающих ключей
-mtproxymax secret generate-links [txt|html] # Экспорт всех ссылок (HTML содержит QR-коды)
-mtproxymax secret export > backup.csv       # Экспорт в CSV
-mtproxymax secret import backup.csv         # Импорт из CSV
-mtproxymax secret archive <label>           # Перенести в архив с возможностью восстановления
-mtproxymax secret unarchive <label>         # Восстановить из архива
-mtproxymax secret clone <src> <new>         # Копировать со всеми ограничениями
-mtproxymax secret bulk-extend <days>        # Продлить все сроки действия
-mtproxymax secret disable-expired           # Отключить все просроченные ключи
-mtproxymax secret purge-disabled            # Окончательно удалить отключённые/просроченные ключи
-mtproxymax secret sub                       # Создать ленту ссылок подписки в Base64
-mtproxymax secret export-json               # Экспорт базы пользователей в JSON
-mtproxymax secret rename-prefix <old> <new> # Массово заменить префикс меток
-mtproxymax secret adtag <label> <tag|clear> # Задать рекламный тег Telegram для ключа
+mtproxymax secret info <label>              # Full view of one user
+mtproxymax secret search <query>            # Find by label or notes
+mtproxymax secret top [traffic|conns]       # Top 5 users right now
+mtproxymax secret sort [traffic|conns|date|name]  # Reorder list
+mtproxymax secret stats                     # Compact overview: traffic/quota/expiry %
+mtproxymax secret generate-links [txt|html] # Bulk export all links (HTML includes QR codes)
+mtproxymax secret export > backup.csv       # Export to CSV
+mtproxymax secret import backup.csv         # Import from CSV
+mtproxymax secret archive <label>           # Soft-delete (restorable)
+mtproxymax secret unarchive <label>         # Restore from archive
+mtproxymax secret clone <src> <new>         # Duplicate with all limits
+mtproxymax secret bulk-extend <days>        # Extend all expiry dates
+mtproxymax secret disable-expired           # Auto-disable all expired secrets
+mtproxymax secret purge-disabled            # Permanently purge disabled/expired secrets
+mtproxymax secret sub                       # Generate Base64 subscription link feed
+mtproxymax secret export-json               # Export user database formatted as JSON
+mtproxymax secret rename-prefix <old> <new> # Bulk rename labels matching prefix
+mtproxymax secret adtag <label> <tag|clear> # Set per-secret Telegram promotion ad-tag
 ```
 
 ---
 
-### 📣 Индивидуальные рекламные теги Telegram (`@MTProxybot`)
+### 📣 Per-Secret Telegram AdTags (`@MTProxybot`)
 
-Обслуживайте несколько сообществ или клиентов на одном сервере без отдельных экземпляров и портов. Назначайте ключам собственные рекламные теги каналов из 32 шестнадцатеричных символов (`ad_tag` от `@MTProxybot`), сохраняя общий тег для остальных:
+Host multiple communities or customers on a single server without running separate instances or ports. Assign unique 32-hex character promotion channel tags (`ad_tag` from `@MTProxybot`) to individual proxy secrets while keeping a global fallback tag for others:
 
 ```bash
-mtproxymax secret adtag alice 0123456789abcdef0123456789abcdef  # Назначить собственный рекламный тег
-mtproxymax secret adtag bob clear                               # Вернуться к общему тегу
+mtproxymax secret adtag alice 0123456789abcdef0123456789abcdef  # Assign custom promotion tag
+mtproxymax secret adtag bob clear                               # Revert to global default tag
 ```
 
-Также доступно в **TUI: Secrets > [b] Set/clear per-secret AdTag**.
+Also available in **TUI: Secrets > [b] Set/clear per-secret AdTag**.
 
 ---
 
-### 🏷️ Теги и шаблоны
+### 🏷️ Tags & Templates
 
-Объединяйте пользователей тегами (семья, работа, бета-тестирование, премиум), затем выполняйте массовые операции по тегу:
+Tag users to group them logically (family, work, beta, premium), then run bulk operations by tag:
 
 ```bash
-mtproxymax secret tag alice family,premium    # Назначить теги
-mtproxymax secret list --tag family            # Отфильтровать по тегу
-mtproxymax secret tags                         # Показать все теги
-mtproxymax secret untag alice                  # Удалить теги
+mtproxymax secret tag alice family,premium    # Assign tags
+mtproxymax secret list --tag family            # Filter by tag
+mtproxymax secret tags                         # Show all tags
+mtproxymax secret untag alice                  # Clear tags
 ```
 
-Сохраняйте шаблоны ограничений для быстрого подключения пользователей:
+Save reusable limit templates to quickly onboard users:
 
 ```bash
 mtproxymax template save premium 15 5 50G 2026-12-31 "Premium tier"
 mtproxymax template list
-mtproxymax secret add alice --template premium    # Применить при создании
-mtproxymax template apply premium bob             # Применить к существующему ключу
+mtproxymax secret add alice --template premium    # Apply at creation
+mtproxymax template apply premium bob             # Apply to existing secret
 ```
 
-Также доступно в **TUI: Secrets > [y] Tags / [k] Templates**.
+Also available in **TUI: Secrets > [y] Tags / [k] Templates**.
 
 ---
 
-### 📅 Ежемесячный сброс квот и автоматическая ротация
+### 📅 Monthly Quota Reset & Auto-Rotate
 
-Автоматические операции по расписанию без настройки cron: выполняются в пятиминутном цикле обслуживания Telegram-бота.
+Automatic scheduled operations — no cron setup required (runs from the Telegram bot's 5-min maintenance loop):
 
 ```bash
-# Сброс счётчика конкретного ключа в день N каждого месяца с учётом коротких месяцев
-mtproxymax secret quota-reset alice 1          # Сбрасывать 1-го числа
-mtproxymax secret quota-reset bob 15           # Сбрасывать 15-го числа
-mtproxymax secret quota-reset alice off        # Отключить
+# Per-secret monthly reset — resets traffic counter on day N of each month (handles short months)
+mtproxymax secret quota-reset alice 1          # Reset on the 1st
+mtproxymax secret quota-reset bob 15           # Reset on the 15th
+mtproxymax secret quota-reset alice off        # Disable
 
-# Сбросить независимый общий счётчик сервера, не меняя квоты пользователей
+# Reset the independent server-wide total (does not change user quotas)
 mtproxymax traffic reset-global
 
-# Общая авторотация: заменять ключи старше N дней
-mtproxymax auto-rotate 90                      # Заменять каждые 90 дней
-mtproxymax auto-rotate off                     # Отключить
+# Global auto-rotate — rotates secrets older than N days
+mtproxymax auto-rotate 90                      # Rotate every 90 days
+mtproxymax auto-rotate off                     # Disable
 
-# Массовая ротация с предварительным просмотром
-mtproxymax secret rotate --all --dry-run       # Предварительный просмотр
-mtproxymax secret rotate --all                 # Выполнить
+# Bulk rotate with dry-run
+mtproxymax secret rotate --all --dry-run       # Preview
+mtproxymax secret rotate --all                 # Do it
 ```
 
-TUI: **Secrets > [q] Monthly reset** и **[r] Rotate all**, **Settings > [a] Auto-rotate policy**.
+TUI: **Secrets > [q] Monthly reset** and **[r] Rotate all**, **Settings > [a] Auto-rotate policy**.
 
 ---
 
-### 🚨 Режим обслуживания и блокировка IP
+### 🚨 Maintenance Mode & IP Banlist
 
-**Режим обслуживания** отклоняет новые подключения с TCP RST, сохраняя текущие сеансы. Удобен для плавной подготовки к перезапуску и предварительных уведомлений:
-
-```bash
-mtproxymax maintenance on          # Отклонять новых клиентов
-mtproxymax maintenance status      # Проверить текущее состояние
-mtproxymax maintenance off         # Вернуться к обычной работе
-```
-
-**Блокировка IP** — запрет отдельных IP/CIDR на уровне межсетевого экрана с сохранением после перезагрузки:
+**Maintenance mode** rejects new connections with TCP RST while keeping existing sessions alive. Perfect for graceful pre-restart announcements:
 
 ```bash
-mtproxymax ban 192.0.2.0/24        # Заблокировать подсеть
-mtproxymax ban 1.2.3.4              # Заблокировать один IP
-mtproxymax bans                     # Показать все блокировки
-mtproxymax unban 1.2.3.4            # Снять блокировку
+mtproxymax maintenance on          # Reject new clients
+mtproxymax maintenance status      # Check current state
+mtproxymax maintenance off         # Restore
 ```
 
-В отличие от геоблокировки, здесь ограничения задаются по адресам, а не странам. Оба механизма могут работать одновременно.
+**IP banlist** — block specific IPs/CIDRs at the firewall level (survives reboots):
+
+```bash
+mtproxymax ban 192.0.2.0/24        # Ban a subnet
+mtproxymax ban 1.2.3.4              # Ban a single IP
+mtproxymax bans                     # List all bans
+mtproxymax unban 1.2.3.4            # Remove ban
+```
+
+Different from geo-blocking (which works by country). Both can run together.
 
 ---
 
-### 💾 Зашифрованные резервные копии и перенос сервера
+### 💾 Encrypted Backups & Server Migration
 
-**Шифрование резервных копий** — AES-256-CBC с выработкой ключа PBKDF2 (100 тысяч итераций). Пароль вводится интерактивно и передаётся openssl через переменную окружения, поэтому не отображается в `ps aux`:
+**Encrypted backups** — AES-256-CBC with PBKDF2 key derivation (100k iterations). Password entered interactively, passed to openssl via environment variable (hidden from `ps aux`):
 
 ```bash
-mtproxymax backup --encrypt                # Создать копию с запросом пароля
+mtproxymax backup --encrypt                # Create (password prompt)
 mtproxymax backup restore-encrypted file.tar.gz.enc
-mtproxymax backup autoclean 30             # Удалить копии старше 30 дней
+mtproxymax backup autoclean 30             # Delete backups older than 30 days
 ```
 
-Задайте `BACKUP_RETENTION_DAYS` в settings.conf для автоматической очистки в цикле обслуживания бота.
+Set `BACKUP_RETENTION_DAYS` in settings.conf for automatic cleanup via the bot's sweep loop.
 
-**Перенос сервера** — упакуйте всё в tar-архив и передайте его:
+**Server migration** — pack everything into a tarball and transfer:
 
 ```bash
-# На старом сервере
+# On old server
 mtproxymax migrate export                      # → /tmp/mtproxymax-migrate-YYYYMMDD-HHMMSS.tar.gz
 scp /tmp/mtproxymax-migrate-*.tar.gz new-server:/tmp/
 
-# На новом сервере
+# On new server
 mtproxymax migrate import /tmp/mtproxymax-migrate-*.tar.gz
-# Сначала автоматически создаётся копия текущего состояния, затем выполняется перезапуск
+# Auto-backs up current state first, then restarts
 ```
 
-Включает настройки, ключи, вышестоящие прокси, экземпляры, теги, архивы, блокировки IP и профили. Роль репликации сохраняется отдельно для каждого сервера.
+Includes: settings, secrets, upstreams, instances, tags, archives, banlist, profiles. Replication role is preserved per-server.
 
 ---
 
-### ⚙️ Тонкая настройка движка
+### ⚙️ Engine Tuning
 
-Изменяйте расширенные параметры без ручного редактирования TOML: при каждой перезагрузке они добавляются в сформированный `config.toml`.
+Expose advanced engine parameters without editing raw TOML — changes are merged into the generated `config.toml` on every reload:
 
 ```bash
-mtproxymax tune list                       # Разрешённые параметры и текущие переопределения
-mtproxymax tune set fake_cert_len 4096     # Увеличить подставной сертификат
-mtproxymax tune set log_level debug        # Подробный журнал
-mtproxymax tune set mask_relay_timeout_ms 120000   # Тайм-аут ретрансляции маскировки: 2 минуты
-mtproxymax tune clear log_level            # Вернуть параметр к значению по умолчанию
-mtproxymax tune clear all                  # Сбросить все параметры
+mtproxymax tune list                       # Show whitelisted params + current overrides
+mtproxymax tune set fake_cert_len 4096     # Larger fake cert
+mtproxymax tune set log_level debug        # Verbose logging
+mtproxymax tune set mask_relay_timeout_ms 120000   # 2-minute mask relay timeout
+mtproxymax tune clear log_level            # Revert one to default
+mtproxymax tune clear all                  # Revert all
 ```
 
-Значения разрешённых параметров проверяются регулярными выражениями при вводе. Недопустимые значения отклоняются. Также доступно в **TUI: Settings > [n] Engine tuning**.
+Whitelisted params are regex-validated on input. Invalid values are rejected. Also available in **TUI: Settings > [n] Engine tuning**.
 
 ---
 
-### ✅ Проверка установки и аудит
+### ✅ Verify & Audit
 
-**`verify`** выполняет сквозную проверку установки: запущен ли Docker, занят ли порт, проходит ли TLS-рукопожатие, доступны ли домен и Telegram API, действителен ли токен бота.
+**`verify`** runs an end-to-end install check — Docker running, port bound, TLS handshake succeeds, domain reachable, Telegram API reachable, bot token valid:
 
 ```bash
 mtproxymax verify
 ```
 
-**`history`** показывает журнал изменений конфигурации (добавление, удаление и ротация ключей, смена домена и т. д.) с отметками времени:
+**`history`** shows an audit log of config changes (secret add/remove/rotate, domain changes, etc.) with timestamps:
 
 ```bash
-mtproxymax history 100        # Последние 100 событий
+mtproxymax history 100        # Last 100 events
 ```
 
-**`speedtest`** измеряет исходящую скорость и задержку:
+**`speedtest`** measures outbound bandwidth and latency:
 
 ```bash
 mtproxymax speedtest
 ```
 
-**`digest`** показывает сводную панель времени работы, сокетов, общего трафика и состояния бота:
+**`digest`** displays an executive summary dashboard of uptime, sockets, traffic totals, and bot status:
 
 ```bash
 mtproxymax digest
 ```
 
-**`ping-dc`** измеряет задержку TCP-рукопожатия с дата-центрами Telegram по всему миру (DC1–DC5):
+**`ping-dc`** benchmarks TCP handshake latency to global Telegram datacenters (DC1–DC5):
 
 ```bash
 mtproxymax ping-dc
@@ -904,337 +908,337 @@ mtproxymax ping-dc
 
 ---
 
-### 🐚 Автодополнение Bash
+### 🐚 Bash Completion
 
-Включите дополнение всех команд по Tab:
+Get tab-completion for all commands:
 
 ```bash
 sudo mtproxymax completion > /etc/bash_completion.d/mtproxymax
 source /etc/bash_completion.d/mtproxymax
-# Теперь работает: mtproxymax <TAB> или mtproxymax secret <TAB>
+# Now: mtproxymax <TAB> or mtproxymax secret <TAB> works
 ```
 
 ---
 
-## 📊 Сравнение
+## 📊 Comparison
 
-### MTProxyMax и другие решения
+### MTProxyMax vs Other Solutions
 
-| Возможность | **MTProxyMax v1.3** | **mtg v2** (Go) | **Официальный MTProxy** (C) | **Bash-установщики** |
+| Feature | **MTProxyMax v1.3** | **mtg v2** (Go) | **Official MTProxy** (C) | **Bash Installers** |
 |---------|:-:|:-:|:-:|:-:|
-| **Движок** | telemt 3.x (Rust) | mtg (Go) | MTProxy (C) | Разные |
-| **Общие пулы квот (`pool`)** | ✅ | ❌ | ❌ | ❌ |
-| **Бесплатный трафик в выходные и праздники (`calendar`)** | ✅ | ❌ | ❌ | ❌ |
-| **Автоматическое переключение вышестоящих прокси** | ✅ (3 проверки ping) | ❌ | ❌ | ❌ |
-| **Автоматический поиск SNI-доменов (`auto-sni`)** | ✅ | ❌ | ❌ | ❌ |
-| **Экстренный перенос одним действием (`evacuate`)** | ✅ (архив за <5 с) | ❌ | ❌ | ❌ |
-| **Многоканальные JSON-вебхуки** | ✅ (Discord/Slack и др.) | ❌ | ❌ | ❌ |
-| **Интерактивная панель в реальном времени (`live-diag`)** | ✅ | ❌ | ❌ | ❌ |
-| **Моделирование сетевых сбоев (`chaos-test`)** | ✅ (Linux `tc netem`) | ❌ | ❌ | ❌ |
-| **Оценка репутации IP** | ✅ | ❌ | ❌ | ❌ |
-| **FakeTLS V2** | ✅ | ✅ | ❌ (нужны патчи) | Зависит от решения |
-| **Активная диагностика DPI (`dpi-inspect`)** | ✅ (оценка до 100) | ❌ | ❌ | ❌ |
-| **Контроль и восстановление домена маскировки** | ✅ | ❌ | ❌ | ❌ |
-| **Экстренный режим защиты** | ✅ | ❌ | ❌ | ❌ |
-| **SYN-защита ядра с задержкой запросов** | ✅ (>15 SYN/5 с) | ❌ | ❌ | ❌ |
-| **Ограничение скорости по IP (QoS)** | ✅ (Linux `tc`) | ❌ | ❌ | ❌ |
-| **Периоды Happy Hours без учёта трафика** | ✅ | ❌ | ❌ | ❌ |
-| **Прослушивание пула портов** | ✅ (NAT ядра) | ❌ | Несколько процессов | Зависит от решения |
-| **Пулы доменов SNI** | ✅ | ❌ | ❌ | ❌ |
-| **Ограничение TCP MSS** | ✅ | ❌ | ❌ | ❌ |
-| **Экспорт балансировщика L4 (HAProxy/Nginx)** | ✅ | ❌ | ❌ | ❌ |
-| **Динамический DNS Cloudflare (DDNS)** | ✅ | ❌ | ❌ | ❌ |
-| **Снимки конфигурации** | ✅ | ❌ | ❌ | ❌ |
-| **Маскировка трафика** | ✅ | ✅ | ❌ | ❌ |
-| **Ключи нескольких пользователей** | ✅ (без ограничений) | ❌ (1 ключ) | Несколько ключей | Обычно 1 |
-| **Индивидуальные ограничения** | ✅ (соединения, IP, квота, срок) | ❌ | ❌ | ❌ |
-| **Трафик по пользователям** | ✅ (Prometheus) | ❌ | ❌ | ❌ |
-| **Telegram-бот** | ✅ (21 команда) | ❌ | ❌ | ❌ |
-| **Интерактивный TUI** | ✅ | ❌ | ❌ | ❌ |
-| **Цепочки прокси** | ✅ (SOCKS5/4, веса) | ✅ (SOCKS5) | ❌ | ❌ |
-| **Репликация Master-Slave** | ✅ (rsync+SSH, systemd) | ❌ | ❌ | ❌ |
-| **Геоблокировка** | ✅ | Списки разрешённых/запрещённых IP | ❌ | ❌ |
-| **Рекламные теги** | ✅ | ❌ (удалены в v2) | ✅ | Зависит от решения |
-| **Генерация QR-кодов** | ✅ | ❌ | ❌ | У некоторых |
-| **Автовосстановление** | ✅ (с уведомлениями) | ❌ | ❌ | ❌ |
-| **Автообновление** | ✅ | ❌ | ❌ | ❌ |
-| **Docker** | ✅ (несколько архитектур) | ✅ | ❌ | Зависит от решения |
-| **Срок действия доступа** | ✅ | ❌ | ❌ | ❌ |
-| **Квоты трафика** | ✅ | ❌ | ❌ | ❌ |
-| **Ограничения устройств** | ✅ | ❌ | ❌ | ❌ |
-| **Теги и шаблоны** | ✅ | ❌ | ❌ | ❌ |
-| **Зашифрованные резервные копии** | ✅ (AES-256) | ❌ | ❌ | ❌ |
-| **Перенос сервера** | ✅ (экспорт/импорт tar-архива) | ❌ | ❌ | ❌ |
-| **Режим обслуживания** | ✅ (корректный RST) | ❌ | ❌ | ❌ |
-| **Журнал аудита** | ✅ | ❌ | ❌ | ❌ |
-| **Интерфейс настройки движка** | ✅ (разрешённые параметры) | ❌ | Ручное редактирование файлов | ❌ |
-| **Активная разработка** | ✅ | ✅ | Заброшен | Зависит от решения |
+| **Engine** | telemt 3.x (Rust) | mtg (Go) | MTProxy (C) | Various |
+| **Shared Quota Pools (`pool`)** | ✅ | ❌ | ❌ | ❌ |
+| **Weekend/Holiday Data Passes (`calendar`)** | ✅ | ❌ | ❌ | ❌ |
+| **Autonomous Upstream Failover Watchdog** | ✅ (3x ping check) | ❌ | ❌ | ❌ |
+| **Autonomous SNI Cover Hunter (`auto-sni`)** | ✅ | ❌ | ❌ | ❌ |
+| **1-Click Emergency Evacuation (`evacuate`)** | ✅ (<5s bundle) | ❌ | ❌ | ❌ |
+| **Multi-Channel JSON Webhooks** | ✅ (Discord/Slack/etc.) | ❌ | ❌ | ❌ |
+| **Interactive Live Dashboard (`live-diag`)** | ✅ | ❌ | ❌ | ❌ |
+| **Network Chaos Engineering (`chaos-test`)** | ✅ (Linux `tc netem`) | ❌ | ❌ | ❌ |
+| **IP Reputation Clean-Score Inspector** | ✅ | ❌ | ❌ | ❌ |
+| **FakeTLS V2** | ✅ | ✅ | ❌ (needs patches) | Varies |
+| **Active DPI Forensics (`dpi-inspect`)** | ✅ (Score /100) | ❌ | ❌ | ❌ |
+| **Self-Healing Cover Watchdog** | ✅ | ❌ | ❌ | ❌ |
+| **Emergency Lockdown Switch** | ✅ | ❌ | ❌ | ❌ |
+| **Kernel SYN Shield (Tarpit)** | ✅ (>15 SYN/5s) | ❌ | ❌ | ❌ |
+| **Per-IP Bandwidth Shaping (QoS)** | ✅ (Linux `tc`) | ❌ | ❌ | ❌ |
+| **Off-Peak Happy Hours** | ✅ | ❌ | ❌ | ❌ |
+| **Multi-Port Pool Listeners** | ✅ (Kernel NAT) | ❌ | Multi-process | Varies |
+| **Multi-Domain SNI Pools** | ✅ | ❌ | ❌ | ❌ |
+| **TCP MSS Clamping** | ✅ | ❌ | ❌ | ❌ |
+| **Layer-4 LB Exporter (HAProxy/Nginx)** | ✅ | ❌ | ❌ | ❌ |
+| **Cloudflare Dynamic DNS (DDNS)** | ✅ | ❌ | ❌ | ❌ |
+| **Configuration Snapshots** | ✅ | ❌ | ❌ | ❌ |
+| **Traffic Masking** | ✅ | ✅ | ❌ | ❌ |
+| **Multi-User Secrets** | ✅ (unlimited) | ❌ (1 secret) | Multi-secret | Usually 1 |
+| **Per-User Limits** | ✅ (conns, IPs, quota, expiry) | ❌ | ❌ | ❌ |
+| **Per-User Traffic Stats** | ✅ (Prometheus) | ❌ | ❌ | ❌ |
+| **Telegram Bot** | ✅ (21 commands) | ❌ | ❌ | ❌ |
+| **Interactive TUI** | ✅ | ❌ | ❌ | ❌ |
+| **Proxy Chaining** | ✅ (SOCKS5/4, weighted) | ✅ (SOCKS5) | ❌ | ❌ |
+| **Master-Slave Replication** | ✅ (rsync+SSH, systemd) | ❌ | ❌ | ❌ |
+| **Geo-Blocking** | ✅ | IP allowlist/blocklist | ❌ | ❌ |
+| **Ad-Tag Support** | ✅ | ❌ (removed in v2) | ✅ | Varies |
+| **QR Code Generation** | ✅ | ❌ | ❌ | Some |
+| **Auto-Recovery** | ✅ (with alerts) | ❌ | ❌ | ❌ |
+| **Auto-Update** | ✅ | ❌ | ❌ | ❌ |
+| **Docker** | ✅ (multi-arch) | ✅ | ❌ | Varies |
+| **User Expiry Dates** | ✅ | ❌ | ❌ | ❌ |
+| **Bandwidth Quotas** | ✅ | ❌ | ❌ | ❌ |
+| **Device Limits** | ✅ | ❌ | ❌ | ❌ |
+| **Tags & Templates** | ✅ | ❌ | ❌ | ❌ |
+| **Encrypted Backups** | ✅ (AES-256) | ❌ | ❌ | ❌ |
+| **Server Migration** | ✅ (tarball export/import) | ❌ | ❌ | ❌ |
+| **Maintenance Mode** | ✅ (graceful RST) | ❌ | ❌ | ❌ |
+| **Audit Log** | ✅ | ❌ | ❌ | ❌ |
+| **Engine Tuning UI** | ✅ (whitelisted params) | ❌ | Raw files | ❌ |
+| **Active Development** | ✅ | ✅ | Abandoned | Varies |
 
 <details>
-<summary><b>Почему не mtg?</b></summary>
+<summary><b>Why Not mtg?</b></summary>
 
-[mtg](https://github.com/9seconds/mtg) — надёжное и намеренно минималистичное решение. Оно следует **строго определённым принципам** и содержит только базовые функции. Подходит для личного прокси по принципу «настроил и забыл».
+[mtg](https://github.com/9seconds/mtg) is solid and minimal — by design. It's **"highly opinionated"** and intentionally barebones. Fine for a single-user fire-and-forget proxy.
 
-Однако в mtg v2 убрана поддержка рекламных тегов; доступен только один ключ, нет пользовательских ограничений, интерфейса управления и автоматического восстановления.
+But mtg v2 dropped ad-tag support, only supports one secret, has no user limits, no management interface, and no auto-recovery.
 
 </details>
 
 <details>
-<summary><b>Почему не официальный MTProxy?</b></summary>
+<summary><b>Why Not the Official MTProxy?</b></summary>
 
-[Официальный MTProxy от Telegram](https://github.com/TelegramMessenger/MTProxy) (реализация на C) **последний раз обновлялся в 2019 году**. Нет FakeTLS, маскировки трафика и индивидуальных ограничений; требуется ручная сборка, отсутствует Docker.
+[Telegram's official MTProxy](https://github.com/TelegramMessenger/MTProxy) (C implementation) was **last updated in 2019**. No FakeTLS, no traffic masking, no per-user controls, manual compilation, no Docker.
 
 </details>
 
 <details>
-<summary><b>Почему не простой bash-установщик?</b></summary>
+<summary><b>Why Not a Simple Bash Installer?</b></summary>
 
-Скрипты наподобие MTProtoProxyInstaller устанавливают прокси и выдают ссылку. Управления пользователями, мониторинга, бота, обновлений и восстановления в них нет.
+Scripts like MTProtoProxyInstaller install a proxy and give you a link. That's it. No user management, no monitoring, no bot, no updates, no recovery.
 
-MTProxyMax — **платформа управления** со встроенной установкой.
+MTProxyMax is not just an installer — it's a **management platform** that happens to install itself.
 
 </details>
 
 ---
 
-## 🏗️ Архитектура
+## 🏗️ Architecture
 
 ```
-Клиент Telegram
+Telegram Client
       │
       ▼
-┌───────────────────────────┐
-│   Ваш сервер (порт 443)    │
-│  ┌─────────────────────┐  │
-│  │  Контейнер Docker   │  │
-│  │  ┌───────────────┐  │  │
-│  │  │    telemt     │  │  │  ← Движок Rust/Tokio
-│  │  │   (FakeTLS)   │  │  │
-│  │  └───────┬───────┘  │  │
-│  └──────────┼──────────┘  │
-│             │             │
-│      ┌──────┴──────┐      │
-│      ▼             ▼      │
-│   Прямой       Цепочка    │  ← Маршрутизация через вышестоящие прокси
-│   маршрут      SOCKS5     │
-└─────────────┬─────────────┘
-              │
-              ▼
-       Серверы Telegram
+┌─────────────────────────┐
+│  Your Server (port 443) │
+│  ┌───────────────────┐  │
+│  │  Docker Container  │  │
+│  │  ┌─────────────┐  │  │
+│  │  │   telemt     │  │  │  ← Rust/Tokio engine
+│  │  │  (FakeTLS)   │  │  │
+│  │  └──────┬──────┘  │  │
+│  └─────────┼─────────┘  │
+│            │             │
+│     ┌──────┴──────┐     │
+│     ▼             ▼     │
+│  Direct      SOCKS5     │  ← Upstream routing
+│  routing     chaining   │
+└─────────┬───────────────┘
+          │
+          ▼
+   Telegram Servers
 
 
-Репликация Master-Slave (необязательно):
+Master-Slave Replication (optional):
 
-  Ведущий сервер             Ведомые серверы
+  Master Server              Slave Server(s)
   ┌──────────────┐           ┌──────────────┐
   │ mtproxymax   │──rsync──▶ │ mtproxymax   │
-  │ (таймер      │   +SSH    │ (получает    │
-  │ systemd 60 с)│           │ конфигурацию)│
+  │ (systemd     │   +SSH    │ (receives    │
+  │  timer 60s)  │           │  config)     │
   └──────────────┘           └──────────────┘
 ```
 
-| Компонент | Назначение |
+| Component | Role |
 |-----------|------|
-| **mtproxymax.sh** | Единый bash-скрипт: CLI, TUI и управление конфигурацией |
-| **telemt** | MTProto-движок на Rust в Docker-контейнере |
-| **Служба Telegram-бота** | Независимая служба опроса Bot API (systemd или OpenRC) |
-| **Служба синхронизации** | Таймер systemd для отправки конфигурации ведомым серверам |
-| **Точка доступа Prometheus** | `/metrics` на порту 9090 (только localhost) |
+| **mtproxymax.sh** | Single bash script: CLI, TUI, config manager |
+| **telemt** | Rust MTProto engine running inside Docker |
+| **Telegram bot service** | Independent service polling Bot API (systemd or OpenRC) |
+| **Replication sync service** | systemd timer pushing config to slave servers |
+| **Prometheus endpoint** | `/metrics` on port 9090 (localhost only) |
 
 ---
 
-## 📖 Справочник CLI
+## 📖 CLI Reference
 
 <details>
-<summary><b>Управление прокси</b></summary>
+<summary><b>Proxy Management</b></summary>
 
 ```bash
-mtproxymax install              # Запустить мастер установки
-mtproxymax uninstall            # Удалить всё
-mtproxymax start                # Запустить прокси
-mtproxymax stop                 # Остановить прокси
-mtproxymax restart              # Перезапустить прокси
-mtproxymax status               # Показать состояние прокси
-mtproxymax digest               # Сводный отчёт
-mtproxymax ping-dc              # Измерить задержку до DC Telegram
-mtproxymax menu                 # Открыть интерактивный TUI
+mtproxymax install              # Run installation wizard
+mtproxymax uninstall            # Remove everything
+mtproxymax start                # Start proxy
+mtproxymax stop                 # Stop proxy
+mtproxymax restart              # Restart proxy
+mtproxymax status               # Show proxy status
+mtproxymax digest               # Executive summary report
+mtproxymax ping-dc              # Telegram DC latency benchmark
+mtproxymax menu                 # Open interactive TUI
 ```
 
 </details>
 
 <details>
-<summary><b>Ключи пользователей</b></summary>
+<summary><b>User Secrets</b></summary>
 
-**Основные операции:**
+**Core operations:**
 ```bash
-mtproxymax secret add <label>           # Добавить пользователя (необязательно: --template <name>)
-mtproxymax secret remove <label>        # Удалить пользователя (поддерживает --dry-run)
-mtproxymax secret list                  # Показать всех пользователей
-mtproxymax secret list --tag <tag>      # Отфильтровать список по тегу
-mtproxymax secret list --csv            # Вывести CSV для электронных таблиц
-mtproxymax secret info <label>          # Полные сведения: ограничения, трафик, ссылка, QR-код
-mtproxymax secret search <query>        # Найти ключи по метке или заметкам
-mtproxymax secret rotate <label>        # Новый ключ с прежней меткой
-mtproxymax secret rotate --all          # Массовая ротация (поддерживает --dry-run)
-mtproxymax secret clone <src> <new>     # Копировать со всеми ограничениями
-mtproxymax secret rename <old> <new>    # Переименовать ключ
-mtproxymax secret enable <label>        # Восстановить доступ пользователя
-mtproxymax secret disable <label>       # Временно отключить
-mtproxymax secret disable-expired       # Отключить все просроченные ключи
-mtproxymax secret link [label]          # Показать ссылку подключения
-mtproxymax secret qr [label]            # Показать QR-код
-mtproxymax secret generate-links [txt|html]  # Экспортировать все ссылки
-mtproxymax secret sub                   # Лента ссылок подписки в Base64
-mtproxymax secret export-json           # Экспортировать пользователей в JSON
-mtproxymax secret purge-disabled        # Окончательно удалить отключённые/просроченные ключи
-mtproxymax secret rename-prefix <o> <n> # Массово заменить совпадающий префикс
-mtproxymax secret note <label> [text]   # Добавить заметку или описание
-mtproxymax secret logs <label> [lines]  # Журнал активности пользователя
-mtproxymax secret adtag <label> <tag|clear> # Рекламный тег Telegram для ключа
+mtproxymax secret add <label>           # Add user (optional: --template <name>)
+mtproxymax secret remove <label>        # Remove user (supports --dry-run)
+mtproxymax secret list                  # List all users
+mtproxymax secret list --tag <tag>      # Filter list by tag
+mtproxymax secret list --csv            # Output as CSV for spreadsheets
+mtproxymax secret info <label>          # Full detail view (limits, traffic, link, QR)
+mtproxymax secret search <query>        # Find secrets by label or notes
+mtproxymax secret rotate <label>        # New key, same label
+mtproxymax secret rotate --all          # Bulk rotate (supports --dry-run)
+mtproxymax secret clone <src> <new>     # Duplicate with all limits
+mtproxymax secret rename <old> <new>    # Rename a secret
+mtproxymax secret enable <label>        # Re-enable user
+mtproxymax secret disable <label>       # Temporarily disable
+mtproxymax secret disable-expired       # Disable all expired secrets
+mtproxymax secret link [label]          # Show proxy link
+mtproxymax secret qr [label]            # Show QR code
+mtproxymax secret generate-links [txt|html]  # Bulk export all links
+mtproxymax secret sub                   # Base64 subscription link feed
+mtproxymax secret export-json           # Export users as clean JSON
+mtproxymax secret purge-disabled        # Permanently purge disabled/expired
+mtproxymax secret rename-prefix <o> <n> # Bulk rename matching prefix
+mtproxymax secret note <label> [text]   # Attach notes/description
+mtproxymax secret logs <label> [lines]  # Per-user activity log
+mtproxymax secret adtag <label> <tag|clear> # Per-secret Telegram ad-tag
 ```
 
-**Ограничения и квоты:**
+**Limits & Quotas:**
 ```bash
-mtproxymax secret setlimit <label> <type> <value>          # Задать отдельное ограничение
-mtproxymax secret setlimits <label> <conns> <ips> <quota> [expires]  # Задать все ограничения
-mtproxymax secret extend <label> <days>   # Продлить срок действия одного ключа
-mtproxymax secret bulk-extend <days>      # Продлить сроки всех ключей
-mtproxymax secret quota-reset <label> <day|off>  # Сбрасывать месячную квоту в день N
-mtproxymax secret reset-traffic <label|all>      # Сбросить счётчики трафика
+mtproxymax secret setlimit <label> <type> <value>          # Set individual limit
+mtproxymax secret setlimits <label> <conns> <ips> <quota> [expires]  # Set all limits
+mtproxymax secret extend <label> <days>   # Extend one secret's expiry
+mtproxymax secret bulk-extend <days>      # Extend all secrets' expiry
+mtproxymax secret quota-reset <label> <day|off>  # Monthly quota reset on day N
+mtproxymax secret reset-traffic <label|all>      # Reset traffic counters
 ```
 
-**Теги и шаблоны:**
+**Tags & Templates:**
 ```bash
-mtproxymax secret tag <label> <tag1,tag2>  # Назначить теги ключу
-mtproxymax secret untag <label>            # Удалить все теги
-mtproxymax secret tags [label]             # Показать все теги или теги одного ключа
+mtproxymax secret tag <label> <tag1,tag2>  # Assign tags to a secret
+mtproxymax secret untag <label>            # Clear all tags
+mtproxymax secret tags [label]             # Show all tags or for one secret
 mtproxymax template save <name> <conns> <ips> <quota> [expires] [notes]
-mtproxymax template list                   # Показать сохранённые шаблоны
-mtproxymax template apply <name> <label>   # Применить шаблон к существующему ключу
+mtproxymax template list                   # List saved templates
+mtproxymax template apply <name> <label>   # Apply template to existing secret
 mtproxymax template delete <name>
-mtproxymax secret add alice --template premium  # Добавить с готовыми ограничениями
+mtproxymax secret add alice --template premium  # Add with preset limits
 ```
 
-**Организация и жизненный цикл:**
+**Organization & Lifecycle:**
 ```bash
-mtproxymax secret sort [traffic|conns|date|name]  # Изменить порядок списка
-mtproxymax secret top [traffic|conns] [N]  # Показать N лидеров (по умолчанию 5)
-mtproxymax secret stats                 # Краткая сводка по пользователям
-mtproxymax secret archive <label>       # Перенести в архив с возможностью восстановления
-mtproxymax secret unarchive <label>     # Восстановить из архива
-mtproxymax secret archives              # Показать архивные ключи
-mtproxymax secret export > file.csv     # Экспорт в CSV
-mtproxymax secret import file.csv       # Импорт из CSV
-mtproxymax secret add-batch <l1> <l2> ...     # Добавить несколько пользователей
-mtproxymax secret remove-batch <l1> <l2> ...  # Удалить несколько пользователей
-mtproxymax auto-rotate [N|off]          # Общая политика: заменять ключи старше N дней
-```
-
-</details>
-
-<details>
-<summary><b>Конфигурация</b></summary>
-
-```bash
-mtproxymax port [get|<number>]          # Показать или задать порт прокси
-mtproxymax ip [get|auto|<address>]      # Показать или задать IP в ссылках подключения
-mtproxymax domain [get|clear|<host>]    # Показать или задать домен FakeTLS
-mtproxymax mask-backend [host:port]     # Задать сервер маскировки для постороннего трафика
-mtproxymax mask-relay-bytes [N|0|clear] # Лимит байтов в каждом направлении маскировки (0 = без ограничений)
-mtproxymax tg-urls [get|set <field> <url>|clear]  # Собственные URL инфраструктуры Telegram
-mtproxymax adtag set <hex>              # Задать рекламный тег
-mtproxymax adtag remove                 # Удалить рекламный тег
-mtproxymax config                       # Показать текущую конфигурацию движка
-```
-
-**Расширенная настройка движка:**
-```bash
-mtproxymax tune list                    # Показать разрешённые параметры и текущие значения
-mtproxymax tune get <param>             # Показать текущее значение
-mtproxymax tune set <param> <value>     # Задать параметр (например, fake_cert_len, mask_relay_timeout_ms, log_level)
-mtproxymax tune clear <param|all>       # Сбросить один или все параметры
-```
-
-Настройки применяются через sed к сформированному config.toml без дублирования ключей TOML. Разрешённые параметры: `fake_cert_len`, `client_handshake`, `tg_connect`, `client_keepalive`, `client_ack`, `replay_check_len`, `replay_window_secs`, `ignore_time_skew`, `listen_backlog`, `max_connections`, `accept_permit_timeout_ms`, `prefer_ipv6`, `fast_mode`, `log_level`, `mask_relay_timeout_ms`, `mask_relay_idle_timeout_ms`.
-
-</details>
-
-<details>
-<summary><b>Профили</b></summary>
-
-```bash
-mtproxymax profile save <name>          # Сохранить снимок текущей конфигурации
-mtproxymax profile load <name>          # Восстановить профиль с автоматическим перезапуском
-mtproxymax profile list                 # Показать все сохранённые профили
-mtproxymax profile delete <name>        # Удалить профиль
+mtproxymax secret sort [traffic|conns|date|name]  # Reorder the list
+mtproxymax secret top [traffic|conns] [N]  # Top N users (default 5)
+mtproxymax secret stats                 # Compact per-user overview
+mtproxymax secret archive <label>       # Soft-delete (restorable)
+mtproxymax secret unarchive <label>     # Restore from archive
+mtproxymax secret archives              # List archived secrets
+mtproxymax secret export > file.csv     # Export to CSV
+mtproxymax secret import file.csv       # Import from CSV
+mtproxymax secret add-batch <l1> <l2> ...     # Add many at once
+mtproxymax secret remove-batch <l1> <l2> ...  # Remove many at once
+mtproxymax auto-rotate [N|off]          # Global policy: auto-rotate older than N days
 ```
 
 </details>
 
 <details>
-<summary><b>Резервное копирование, восстановление и перенос</b></summary>
+<summary><b>Configuration</b></summary>
 
 ```bash
-# Обычные резервные копии без шифрования
-mtproxymax backup                       # Создать копию с отметкой времени
-mtproxymax restore <file>               # Восстановить из файла резервной копии
-mtproxymax backups                      # Показать доступные копии
-mtproxymax backup autoclean [days]      # Удалить копии старше N дней
-
-# Зашифрованные копии (AES-256 + PBKDF2)
-mtproxymax backup --encrypt             # Создать зашифрованную копию с запросом пароля
-mtproxymax backup restore-encrypted <file>  # Восстановить зашифрованную копию
-# Или: mtproxymax restore --encrypted <file>
-
-# Перенос сервера: tar-архив всех настроек, ключей, тегов, блокировок, архивов и профилей
-mtproxymax migrate export [file]        # Экспортировать всё состояние в tar-архив
-mtproxymax migrate import <file>        # Импортировать tar-архив, предварительно сохранив текущее состояние
+mtproxymax port [get|<number>]          # Get/set proxy port
+mtproxymax ip [get|auto|<address>]      # Get/set custom IP for proxy links
+mtproxymax domain [get|clear|<host>]    # Get/set FakeTLS domain
+mtproxymax mask-backend [host:port]     # Set mask backend for non-proxy traffic
+mtproxymax mask-relay-bytes [N|0|clear] # Max bytes per dir on mask relay (0=unlimited)
+mtproxymax tg-urls [get|set <field> <url>|clear]  # Custom Telegram infra URLs
+mtproxymax adtag set <hex>              # Set ad-tag
+mtproxymax adtag remove                 # Remove ad-tag
+mtproxymax config                       # Show current engine config
 ```
 
-Для смены сервера выполните `migrate export` на старом, передайте архив через `scp` и запустите `migrate import` на новом. Конфигурация репликации сохраняется с учётом роли.
+**Engine Tuning (advanced):**
+```bash
+mtproxymax tune list                    # Show whitelisted tunable params + current values
+mtproxymax tune get <param>             # Show current value
+mtproxymax tune set <param> <value>     # Set a tunable (e.g. fake_cert_len, mask_relay_timeout_ms, log_level)
+mtproxymax tune clear <param|all>       # Clear one or all tunings
+```
+
+Tunings are applied via sed post-processing on the generated config.toml — no TOML duplicate-key issues. Whitelisted params include: `fake_cert_len`, `client_handshake`, `tg_connect`, `client_keepalive`, `client_ack`, `replay_check_len`, `replay_window_secs`, `ignore_time_skew`, `listen_backlog`, `max_connections`, `accept_permit_timeout_ms`, `prefer_ipv6`, `fast_mode`, `log_level`, `mask_relay_timeout_ms`, `mask_relay_idle_timeout_ms`.
 
 </details>
 
 <details>
-<summary><b>Уведомления и бот</b></summary>
+<summary><b>Profiles</b></summary>
 
 ```bash
-mtproxymax notify <message>             # Отправить сообщение через Telegram-бота
-mtproxymax telegram setup               # Интерактивная настройка бота
-mtproxymax telegram status              # Показать состояние бота
-mtproxymax telegram test                # Отправить тестовое сообщение
-mtproxymax telegram interval <hours>    # Изменить интервал отчётов (1–168 ч)
-mtproxymax telegram label <name>        # Изменить метку сервера в уведомлениях
-mtproxymax telegram alerts <on|off>     # Переключить уведомления о сбое и восстановлении
-mtproxymax telegram disable             # Отключить бота
-mtproxymax telegram remove              # Полностью удалить бота
+mtproxymax profile save <name>          # Snapshot current config
+mtproxymax profile load <name>          # Restore profile (auto-restarts)
+mtproxymax profile list                 # List all saved profiles
+mtproxymax profile delete <name>        # Delete a profile
 ```
 
 </details>
 
 <details>
-<summary><b>Периодическое обслуживание</b></summary>
+<summary><b>Backup, Restore & Migration</b></summary>
 
 ```bash
-mtproxymax sweep                        # Выполнить все периодические задачи (бот вызывает каждые 5 мин)
-mtproxymax auto-rotate [N|off]          # Автоматически заменять ключи старше N дней
-# Месячная квота сбрасывается отдельно для ключей: см. secret quota-reset в разделе «Ключи пользователей»
+# Regular (unencrypted) backups
+mtproxymax backup                       # Create a timestamped backup
+mtproxymax restore <file>               # Restore from a backup file
+mtproxymax backups                      # List available backups
+mtproxymax backup autoclean [days]      # Delete backups older than N days
+
+# Encrypted backups (AES-256 + PBKDF2)
+mtproxymax backup --encrypt             # Create encrypted backup (password prompt)
+mtproxymax backup restore-encrypted <file>  # Restore encrypted backup
+# Or: mtproxymax restore --encrypted <file>
+
+# Server migration (tarball-based — all settings, secrets, tags, bans, archives, profiles)
+mtproxymax migrate export [file]        # Export all state to a tarball
+mtproxymax migrate import <file>        # Import state from a tarball (auto-backs up current first)
 ```
 
-Если служба Telegram-бота установлена, периодические задачи выполняются автоматически каждые 5 минут. Их также можно запустить вручную через `sweep` или по расписанию cron.
+The migrate workflow is perfect for server pivots: run `migrate export` on the old server, `scp` the tarball, run `migrate import` on the new server. Replication config is preserved per-role.
 
 </details>
 
 <details>
-<summary><b>Автодополнение и просмотр изменений</b></summary>
+<summary><b>Notifications & Bot</b></summary>
 
 ```bash
-mtproxymax completion                   # Вывести скрипт автодополнения Bash по Tab
-mtproxymax changelog                    # Показать описания релизов GitHub после установленной версии
+mtproxymax notify <message>             # Send custom message via Telegram bot
+mtproxymax telegram setup               # Interactive bot setup
+mtproxymax telegram status              # Show bot status
+mtproxymax telegram test                # Send test message
+mtproxymax telegram interval <hours>    # Change report interval (1-168h)
+mtproxymax telegram label <name>        # Change server label in notifications
+mtproxymax telegram alerts <on|off>     # Enable/disable down/recovery alerts
+mtproxymax telegram disable             # Disable bot
+mtproxymax telegram remove              # Remove bot completely
+```
 
-# Установить автодополнение Bash с правами root:
+</details>
+
+<details>
+<summary><b>Periodic Maintenance</b></summary>
+
+```bash
+mtproxymax sweep                        # Run all periodic tasks (called by bot loop every 5 min)
+mtproxymax auto-rotate [N|off]          # Auto-rotate secrets older than N days
+# Monthly quota reset is per-secret: see `secret quota-reset` in User Secrets
+```
+
+Periodic tasks run automatically via the Telegram bot daemon's 5-min loop when installed. Can be triggered manually via `sweep` or scheduled via cron.
+
+</details>
+
+<details>
+<summary><b>Polish & Completion</b></summary>
+
+```bash
+mtproxymax completion                   # Emit bash tab-completion script
+mtproxymax changelog                    # Show GitHub release notes since installed version
+
+# Install bash completion (root):
 sudo mtproxymax completion > /etc/bash_completion.d/mtproxymax
-# Или в текущей оболочке:
+# Or in your shell:
 eval "$(mtproxymax completion)"
 ```
 
@@ -1242,320 +1246,320 @@ eval "$(mtproxymax completion)"
 
 
 <details>
-<summary><b>Репликация</b></summary>
+<summary><b>Replication</b></summary>
 
 ```bash
-mtproxymax replication setup            # Интерактивный мастер (master/slave/standalone)
-mtproxymax replication status           # Роль, таймер, последняя синхронизация, ведомые серверы
-mtproxymax replication add <host> [port] [label]   # Зарегистрировать ведомый сервер
-mtproxymax replication remove <host_or_label>      # Удалить ведомый сервер
-mtproxymax replication list             # Показать все ведомые серверы
-mtproxymax replication enable           # Включить таймер синхронизации
-mtproxymax replication disable          # Отключить таймер синхронизации
-mtproxymax replication sync             # Синхронизировать немедленно
-mtproxymax replication test [host]      # Проверить SSH-доступ к ведомым серверам
-mtproxymax replication logs             # Показать журнал синхронизации
-mtproxymax replication reset            # Удалить все настройки репликации
-mtproxymax replication promote          # Сделать ведомый сервер ведущим при сбое
+mtproxymax replication setup            # Interactive wizard (master/slave/standalone)
+mtproxymax replication status           # Role, timer state, last sync, slave list
+mtproxymax replication add <host> [port] [label]   # Register a slave server
+mtproxymax replication remove <host_or_label>      # Remove a slave
+mtproxymax replication list             # List all slaves
+mtproxymax replication enable           # Enable sync timer
+mtproxymax replication disable          # Disable sync timer
+mtproxymax replication sync             # Trigger immediate sync
+mtproxymax replication test [host]      # Test SSH connectivity to slave(s)
+mtproxymax replication logs             # Show sync log
+mtproxymax replication reset            # Remove all replication config
+mtproxymax replication promote          # Promote slave to master (failover)
 ```
 
 </details>
 
 <details>
-<summary><b>Коммерческие функции и защита</b></summary>
+<summary><b>Enterprise Commercial & Shield Suite</b></summary>
 
 ```bash
-mtproxymax voucher create <cnt> <qta> <dys> # Создать пакет кодов ваучеров
-mtproxymax voucher list [active|all]        # Показать ваучеры и состояние активации
-mtproxymax voucher revoke <code>            # Отозвать ваучер
-mtproxymax voucher redeem <code> [label]    # Активировать ваучер локально
-mtproxymax admin add <chat_id> <role>       # Добавить администратора Telegram с ролью superadmin/reseller
-mtproxymax admin remove <chat_id>           # Удалить администратора Telegram
-mtproxymax admin list                       # Показать настроенных администраторов Telegram
-mtproxymax portal [enable|disable|status]   # Управлять HTML-порталом состояния и самообслуживания
-mtproxymax scanner-shield [enable|disable]  # Управлять автоматической защитой от Shodan/Censys
+mtproxymax voucher create <cnt> <qta> <dys> # Generate batch voucher codes
+mtproxymax voucher list [active|all]        # List vouchers and redemption status
+mtproxymax voucher revoke <code>            # Revoke a voucher code
+mtproxymax voucher redeem <code> [label]    # Redeem voucher code locally
+mtproxymax admin add <chat_id> <role>       # Add role-based Telegram admin (superadmin/reseller)
+mtproxymax admin remove <chat_id>           # Remove role-based Telegram admin
+mtproxymax admin list                       # List configured Telegram admins
+mtproxymax portal [enable|disable|status]   # Manage Self-Service HTML Status Portal
+mtproxymax scanner-shield [enable|disable]  # Manage Automated Shodan/Censys Threat Shield
 ```
 
 </details>
 
 <details>
-<summary><b>Безопасность и маршрутизация</b></summary>
+<summary><b>Security & Routing</b></summary>
 
-**Геоблокировка:**
+**Geo-Blocking:**
 ```bash
-mtproxymax geoblock add <CC>            # Заблокировать страну
-mtproxymax geoblock remove <CC>         # Разблокировать страну
-mtproxymax geoblock list                # Показать заблокированные страны
+mtproxymax geoblock add <CC>            # Block country
+mtproxymax geoblock remove <CC>         # Unblock country
+mtproxymax geoblock list                # List blocked countries
 ```
 
-**Блокировка IP:**
+**IP Banlist:**
 ```bash
-mtproxymax ban <ip|cidr>                # Заблокировать IP/CIDR через iptables с сохранением после перезагрузки
-mtproxymax unban <ip|cidr>              # Снять блокировку
-mtproxymax bans                         # Показать заблокированные IP
+mtproxymax ban <ip|cidr>                # Ban a specific IP/CIDR (iptables, survives reboots)
+mtproxymax unban <ip|cidr>              # Remove ban
+mtproxymax bans                         # List banned IPs
 ```
 
-**Режим обслуживания:**
+**Maintenance Mode:**
 ```bash
-mtproxymax maintenance on               # Отклонять новые соединения через RST, сохраняя существующие
-mtproxymax maintenance off              # Вернуться к обычной работе
-mtproxymax maintenance status           # Проверить текущее состояние
+mtproxymax maintenance on               # Reject new connections gracefully (RST), keep existing alive
+mtproxymax maintenance off              # Restore normal operation
+mtproxymax maintenance status           # Check current state
 ```
 
-**Маршрутизация через вышестоящие прокси:**
+**Upstream Routing:**
 ```bash
-mtproxymax upstream list                # Показать вышестоящие прокси
+mtproxymax upstream list                # List upstreams
 mtproxymax upstream add <name> <type> <host:port> [user] [pass] [weight]
-mtproxymax upstream remove <name>       # Удалить вышестоящий прокси
-mtproxymax upstream test <name>         # Проверить соединение
-mtproxymax sni-policy [mask|drop]       # Неизвестный SNI: mask — маскировать, drop — отклонять
+mtproxymax upstream remove <name>       # Remove upstream
+mtproxymax upstream test <name>         # Test connectivity
+mtproxymax sni-policy [mask|drop]       # Unknown SNI action (mask=permissive, drop=strict)
 ```
 
 </details>
 
 <details>
-<summary><b>Защита от DPI, QoS и DevOps</b></summary>
+<summary><b>Next-Gen Anti-DPI, QoS & DevOps Suite</b></summary>
 
-**Защита от DPI и усиление безопасности:**
+**Anti-DPI & Posture Hardening:**
 ```bash
-mtproxymax syn-shield [on|off|status]   # Переключить SYN-защиту ядра (задержка при >15 SYN/5 с)
-mtproxymax shield [on|off|status]       # Переключить дополнение пакетов против DPI
-mtproxymax cover-shield [on|off|target] # Переключить маскировку обратным прокси против активных проверок
-mtproxymax bbr [on|off|status]          # Переключить управление перегрузкой TCP BBRv3 и настройку ECN
-mtproxymax stealth [ultra|normal|status] # Изменить окно повторов и размер кэша без остановки
-mtproxymax clamp-mss [on|off|status]    # Согласовать TCP MSS с PMTU для предотвращения потерь
-mtproxymax client-mss [status|off|tspu] # Клиентский MSS Telemt: off — максимальная скорость, tspu — обход DPI
-mtproxymax domain-pool [add|remove|list] # Управлять пулом ротации доменов SNI
-mtproxymax port-pool [add|remove|list]  # Прослушивать резервные порты через NAT ядра
-mtproxymax lockdown [on|off|status]     # Включить экстренный режим защиты
+mtproxymax syn-shield [on|off|status]   # Toggle Kernel SYN Shield (>15 SYN/5s tarpit)
+mtproxymax shield [on|off|status]       # Toggle Anti-DPI Packet Padding Shield
+mtproxymax cover-shield [on|off|target] # Toggle Reverse-Proxy Cover Shield (Active Probe Defense)
+mtproxymax bbr [on|off|status]          # Toggle TCP BBRv3 Congestion Control & ECN tuning
+mtproxymax stealth [ultra|normal|status] # Hot-swap engine replay window and cache size
+mtproxymax clamp-mss [on|off|status]    # Align TCP MSS to PMTU preventing packet drops
+mtproxymax client-mss [status|off|tspu] # Telemt client-side MSS (off=max speed, tspu=DPI evasion)
+mtproxymax domain-pool [add|remove|list] # Manage multi-domain SNI rotation pool
+mtproxymax port-pool [add|remove|list]  # Listen on multi-port fallback pool via kernel NAT
+mtproxymax lockdown [on|off|status]     # Engage emergency panic defense posture
 ```
 
-**Диагностика и службы контроля:**
+**Forensics & Watchdogs:**
 ```bash
-mtproxymax dpi-inspect                  # Проверить защиту от DPI по 5 пунктам (оценка до 100)
-mtproxymax cover-watchdog [test|auto]   # Проверить домены маскировки и заменять при блокировке
-mtproxymax abuse-watch                  # Найти аномальный расход трафика (>50 ГБ/сутки)
+mtproxymax dpi-inspect                  # Run active 5-point Anti-DPI readiness scan (/100 score)
+mtproxymax cover-watchdog [test|auto]   # Probe cover domain pool & auto-rotate on censorship
+mtproxymax abuse-watch                  # Scan users for abnormal bandwidth spikes (>50GB/day)
 ```
 
-**Ограничение скорости и квоты:**
+**Bandwidth Shaping & Quotas:**
 ```bash
-mtproxymax qos [set <mbps>|off|status]  # Ограничить скорость по IP через token bucket Linux tc
-mtproxymax happy-hours [set <win>|off]  # Задать периоды без учёта трафика в часы низкой нагрузки
-mtproxymax notify-expiry                # Отправить напоминания Telegram за 7 дней, 3 дня и 24 часа
-mtproxymax broadcast <message>          # Отправить системное объявление через Telegram-бота
+mtproxymax qos [set <mbps>|off|status]  # Linux tc token bucket per-IP bandwidth limiter
+mtproxymax happy-hours [set <win>|off]  # Define off-peak unmetered traffic windows
+mtproxymax notify-expiry                # Trigger proactive Telegram reminders (7d, 3d, 24h)
+mtproxymax broadcast <message>          # Send system announcement via Telegram bot
 ```
 
-**Автоматизация DevOps и кластеров:**
+**DevOps & Clustering Automation:**
 ```bash
-mtproxymax export-lb [haproxy|nginx]    # Создать фрагменты конфигурации TCP-балансировщика L4
-mtproxymax ddns [set|run|status|off]    # Управлять обновлением публичного IP через Cloudflare DDNS
-mtproxymax diag-dump                    # Создать полный диагностический архив .tar.gz
-mtproxymax snapshot [create|restore|list] # Управлять tar-снимками конфигурации
+mtproxymax export-lb [haproxy|nginx]    # Generate Layer-4 TCP load balancer config snippets
+mtproxymax ddns [set|run|status|off]    # Manage Cloudflare Dynamic DNS public IP updater
+mtproxymax diag-dump                    # Create full forensic diagnostic bundle (.tar.gz)
+mtproxymax snapshot [create|restore|list] # Manage point-in-time configuration tarballs
 ```
 
-**Эксплуатация, сводки и подключение пользователей:**
+**Operations, Briefings & Onboarding Suite:**
 ```bash
-mtproxymax backup send-tg [file]        # Отправить резервную копию в чат Telegram-бота
-mtproxymax daily-report [on|off|run]    # Настроить автоматическую утреннюю сводку
-mtproxymax ssh-shield [on|off|status]   # Включить защиту fail2ban от перебора паролей SSH
-mtproxymax net-grade                    # Проверить международные маршруты и выставить оценку A+/A/B/C
-mtproxymax onboard [label]              # Пошаговый мастер подключения пользователя
+mtproxymax backup send-tg [file]        # Push backup archive directly to Telegram bot chat
+mtproxymax daily-report [on|off|run]    # Schedule automated morning executive briefing
+mtproxymax ssh-shield [on|off|status]   # Enable fail2ban SSH brute-force intrusion shield
+mtproxymax net-grade                    # Benchmark international routing & calculate A+/A/B/C grade
+mtproxymax onboard [label]              # Interactive step-by-step user onboarding wizard
 ```
 
-**Производительность, диагностика и самовосстановление:**
+**Performance, Diagnostics & Self-Healing Suite:**
 ```bash
-mtproxymax tcp-boost [on|off|status]    # Включить ускорение TCP BBR и Fast Open в ядре Linux
-mtproxymax tcp-clean [on|off|status]    # Включить агрессивную очистку зависших мобильных сокетов через keep-alive
-mtproxymax socket-boost [on|off]        # Расширить очереди сокетов ядра для снижения задержек
-mtproxymax tls-pad [auto|off|rotate]    # Динамически рандомизировать длину сертификата FakeTLS
-mtproxymax honeypot [on|off|status]     # Включить перенаправление активных проверок на приманку
-mtproxymax leak-scan [thresh]           # Найти совместное использование подписок с разных IP
-mtproxymax cert-check [domain]          # Проверить SSL/TLS-сертификат домена маскировки
-mtproxymax clone-link                   # Экспортировать настройки для репликации в одну строку Base64
-mtproxymax bootstrap <base64>           # Развернуть копию настроек на новом узле
-mtproxymax heal                         # Немедленно очистить RAM и зависшие сокеты
-mtproxymax auto-heal [on|off|status]    # Включить автоматическую фоновую очистку RAM и сокетов
-mtproxymax tcp-fastpath [on|off]        # Оптимизировать окно TCP, SACK и определение MTU пути
-mtproxymax ram-tune [auto|off]          # Определить объём RAM и подобрать TCP-буферы
-mtproxymax resources [status|clear|set] # Настроить или сбросить лимиты CPU и памяти контейнера
-mtproxymax port-hop [add|remove|list]   # Динамическое перенаправление диапазона портов через NAT
-mtproxymax cpu-tune [on|off|status]     # Распределить обработку пакетов по ядрам (RPS/RFS)
-mtproxymax eco-mode [on|off|status]     # Экономичные настройки RAM и TCP для малых серверов
-mtproxymax decoy [set|clear|status]     # Перенаправить проверки на резервный URL или приманку
-mtproxymax geofence [add|remove|list]   # Разрешить или запретить CIDR-подсети стран
-mtproxymax chaos-test [action]          # Моделировать задержки, потери и обрывы для проверки устойчивости
-mtproxymax ip-score [ip|self]           # Проверить IP по глобальным спискам блокировок и цензуры
-mtproxymax pool [create|add|remove|list]# Общие пулы квот для команд и организаций
-mtproxymax calendar [action]            # Бесплатный неучитываемый трафик в выходные и праздники
-mtproxymax expire-action [action]       # Политика истечения доступа: отключить, удалить, архивировать
-mtproxymax top-users [metric]           # Интерактивный рейтинг пользователей в реальном времени
-mtproxymax traffic-alert [action]       # Автоматические уведомления об аномальных всплесках трафика
-mtproxymax evacuate [ip|bundle]         # Экстренный перенос сервера и упаковка данных одним действием
-mtproxymax webhook [add|remove|list]    # JSON-уведомления в Discord/Slack/DingTalk
-mtproxymax qr-sheet [export|pdf]        # Создать лист с QR-кодами подключения для печати
-mtproxymax export-report [format]       # Создать ежемесячный отчёт аудита и расчётов
-mtproxymax dc-optimize [dc|auto]        # Оптимизировать маршруты и задержки до DC Telegram
-mtproxymax live-diag                    # Интерактивная ASCII-панель телеметрии в реальном времени
-mtproxymax auto-sni [on|off|status]     # Автоматически искать и проверять домены маскировки SNI
-mtproxymax failover [on|off|status]     # Контроль DNS и переключение вышестоящих прокси при сбоях
-mtproxymax cert-shield [on|off|status]  # Рандомизировать отпечаток TLS-сертификата
-mtproxymax tui-theme [theme]            # Переключить тему TUI: dark, matrix, cyan, classic
-```
-
-</details>
-
-<details>
-<summary><b>Мониторинг</b></summary>
-
-```bash
-mtproxymax traffic                      # Трафик по пользователям
-mtproxymax connections                  # Текущие активные подключения по пользователям
-mtproxymax metrics                      # Панель метрик движка
-mtproxymax metrics live [seconds]       # Автообновление метрик (по умолчанию 5 с)
-mtproxymax logs                         # Просмотр журнала в реальном времени
-mtproxymax health                       # Быстрая проверка работоспособности
-mtproxymax doctor                       # Полная диагностика: порт, TLS, ключи, диск, бот
-mtproxymax upload-test                  # Проверить отправку через прокси, буферы записи сокетов и выход к DC
-mtproxymax verify                       # Сквозная проверка установки: порт, TLS, Telegram API, метрики
-mtproxymax port-check                   # Проверить доступность порта прокси извне
-mtproxymax speedtest                    # Измерить исходящую скорость и задержку сервера
-mtproxymax uptime                       # Состояние одной строкой для скриптов
-mtproxymax status [--json]              # Состояние прокси (JSON для интеграций мониторинга)
-mtproxymax info                         # Полная сводка сервера: ОС, IPv4/IPv6, пользователи, службы
-mtproxymax history [lines]              # Журнал изменений конфигурации
+mtproxymax tcp-boost [on|off|status]    # Activate Linux Kernel TCP BBR & Fast Open booster
+mtproxymax tcp-clean [on|off|status]    # Activate aggressive keep-alive dead mobile socket reaper
+mtproxymax socket-boost [on|off]        # Apply ultra-low latency kernel socket queue expansion
+mtproxymax tls-pad [auto|off|rotate]    # Dynamic FakeTLS certificate length jitter & randomization
+mtproxymax honeypot [on|off|status]     # Enable active probe decoy redirection & protection
+mtproxymax leak-scan [thresh]           # Detect multi-IP subscription sharing anomalies
+mtproxymax cert-check [domain]          # Inspect cover domain SSL/TLS certificate health
+mtproxymax clone-link                   # Export one-line Base64 server replication bundle
+mtproxymax bootstrap <base64>           # Deploy cloned config bundle on a fresh node
+mtproxymax heal                         # Run emergency RAM & dead socket cleanup immediately
+mtproxymax auto-heal [on|off|status]    # Enable background automated RAM/socket self-healer
+mtproxymax tcp-fastpath [on|off]        # TCP window scaling, SACK & path MTU probing optimizer
+mtproxymax ram-tune [auto|off]          # Auto-detect RAM & apply optimal TCP memory buffers
+mtproxymax resources [status|clear|set] # Configure or reset container CPU/memory limits
+mtproxymax port-hop [add|remove|list]   # Dynamic multi-port NAT range redirection
+mtproxymax cpu-tune [on|off|status]     # Multi-core IRQ packet spreading (RPS/RFS)
+mtproxymax eco-mode [on|off|status]     # Lightweight RAM & TCP kernel tuning for micro-servers
+mtproxymax decoy [set|clear|status]     # Active probe decoy routing to fallback URL/honeypot
+mtproxymax geofence [add|remove|list]   # Country-level CIDR firewall blocking/allowing
+mtproxymax chaos-test [action]          # Simulate latency/loss/disconnects for resilience testing
+mtproxymax ip-score [ip|self]           # Check proxy IP against global blacklists & censorship feeds
+mtproxymax pool [create|add|remove|list]# Shared Quota Pools for teams & organizations
+mtproxymax calendar [action]            # Weekend & holiday unmetered free data passes
+mtproxymax expire-action [action]       # Custom expiry policies (disable, delete, archive)
+mtproxymax top-users [metric]           # Live interactive leaderboard ranking users
+mtproxymax traffic-alert [action]       # Automated high-velocity burst anomaly alerts
+mtproxymax evacuate [ip|bundle]         # 1-Click emergency server migration & data bundle
+mtproxymax webhook [add|remove|list]    # Multi-channel JSON alerts for Discord/Slack/DingTalk
+mtproxymax qr-sheet [export|pdf]        # Printable QR code onboarding sheet generator
+mtproxymax export-report [format]       # Executive monthly audit & billing report generator
+mtproxymax dc-optimize [dc|auto]        # Telegram Datacenter route & latency optimizer
+mtproxymax live-diag                    # Interactive real-time ASCII telemetry dashboard
+mtproxymax auto-sni [on|off|status]     # Autonomous SNI cover domain hunter & benchmark
+mtproxymax failover [on|off|status]     # Autonomous upstream failover & DNS health watchdog
+mtproxymax cert-shield [on|off|status]  # TLS certificate fingerprint randomizer
+mtproxymax tui-theme [theme]            # Switch TUI color themes (dark, matrix, cyan, classic)
 ```
 
 </details>
 
 <details>
-<summary><b>Движок и обновления</b></summary>
+<summary><b>Monitoring</b></summary>
 
 ```bash
-mtproxymax engine status                # Показать текущую версию движка
-mtproxymax engine rebuild               # Принудительно пересобрать образ движка
-mtproxymax rebuild                      # Принудительно собрать из исходников
-mtproxymax update                       # Проверить обновления скрипта и движка
+mtproxymax traffic                      # Per-user traffic breakdown
+mtproxymax connections                  # Live active connections per user
+mtproxymax metrics                      # Engine metrics dashboard
+mtproxymax metrics live [seconds]       # Auto-refresh metrics (default: 5s)
+mtproxymax logs                         # Stream live logs
+mtproxymax health                       # Quick health check
+mtproxymax doctor                       # Comprehensive diagnostics (port, TLS, secrets, disk, bot)
+mtproxymax upload-test                  # Audit proxy upload mechanisms, socket write buffers & DC egress
+mtproxymax verify                       # End-to-end install check (port, TLS, Telegram API, metrics)
+mtproxymax port-check                   # Test if proxy port is reachable from outside
+mtproxymax speedtest                    # Outbound bandwidth/latency test from server
+mtproxymax uptime                       # One-line status (scriptable)
+mtproxymax status [--json]              # Proxy status (JSON for monitoring integrations)
+mtproxymax info                         # Comprehensive server overview (OS, IPv4/IPv6, users, services)
+mtproxymax history [lines]              # Audit log of config changes
+```
+
+</details>
+
+<details>
+<summary><b>Engine & Updates</b></summary>
+
+```bash
+mtproxymax engine status                # Show current engine version
+mtproxymax engine rebuild               # Force rebuild engine image
+mtproxymax rebuild                      # Force rebuild from source
+mtproxymax update                       # Check for script + engine updates
 ```
 
 </details>
 
 ---
 
-## 💻 Системные требования
+## 💻 System Requirements
 
-| Требование | Подробности |
+| Requirement | Details |
 |-------------|---------|
-| **ОС** | Ubuntu, Debian, CentOS, RHEL, Fedora, Rocky, AlmaLinux, Alpine |
-| **Docker** | Устанавливается автоматически, если отсутствует |
-| **RAM** | Не менее 256 МБ |
-| **Доступ** | Нужны права root |
+| **OS** | Ubuntu, Debian, CentOS, RHEL, Fedora, Rocky, AlmaLinux, Alpine |
+| **Docker** | Auto-installed if not present |
+| **RAM** | 256MB minimum |
+| **Access** | Root required |
 | **Bash** | 4.2+ |
 
 ---
 
-## 📁 Файлы конфигурации
+## 📁 Configuration Files
 
-| Файл | Назначение |
+| File | Purpose |
 |------|---------|
-| `/opt/mtproxymax/settings.conf` | Настройки прокси: порт, домен, ограничения, дополнительные параметры |
-| `/opt/mtproxymax/secrets.conf` | Ключи пользователей, ограничения и сроки действия |
-| `/opt/mtproxymax/secrets_archive.conf` | Архивные ключи с возможностью восстановления |
-| `/opt/mtproxymax/secrets_tags.conf` | Теги пользователей: метка → теги через запятую |
-| `/opt/mtproxymax/secrets_quota_reset.conf` | Дни ежемесячного сброса квоты для каждого ключа |
-| `/opt/mtproxymax/templates.conf` | Шаблоны ограничений для повторного использования |
-| `/opt/mtproxymax/tunings.conf` | Переопределения параметров движка из `tune set` |
-| `/opt/mtproxymax/banlist.conf` | Заблокированные IP/CIDR для iptables |
-| `/opt/mtproxymax/upstreams.conf` | Правила маршрутизации через вышестоящие прокси |
-| `/opt/mtproxymax/instances.conf` | Конфигурация экземпляров на разных портах |
-| `/opt/mtproxymax/profiles/` | Сохранённые профили конфигурации: именованные снимки |
-| `/opt/mtproxymax/audit.log` | История изменений конфигурации |
-| `/opt/mtproxymax/connection.log` | Журнал активности пользователей |
-| `/opt/mtproxymax/mtproxy/config.toml` | Сформированная конфигурация движка telemt |
-| `/opt/mtproxymax/pools.conf` | Определения общих пулов квот и их участники |
-| `/opt/mtproxymax/calendar.conf` | Правила расписания для выходных и праздников |
-| `/opt/mtproxymax/webhooks.conf` | URL многоканальных вебхуков |
-| `/opt/mtproxymax/geofence.conf` | Географические ограничения по странам и кэш CIDR |
-| `/opt/mtproxymax/decoy.conf` | Маршрутизация активных проверок и резервные адреса приманок |
-| `/opt/mtproxymax/failover.conf` | Состояние переключения вышестоящих прокси и политики проверок |
-| `/opt/mtproxymax/eco_mode.conf` | Состояние режима экономии памяти |
-| `/opt/mtproxymax/backups/` | Автоматические резервные копии с очисткой по `BACKUP_RETENTION_DAYS` |
+| `/opt/mtproxymax/settings.conf` | Proxy settings (port, domain, limits, tunings prefs) |
+| `/opt/mtproxymax/secrets.conf` | User keys, limits, expiry dates |
+| `/opt/mtproxymax/secrets_archive.conf` | Archived secrets (soft-deleted, restorable) |
+| `/opt/mtproxymax/secrets_tags.conf` | User tags (label → comma-separated tags) |
+| `/opt/mtproxymax/secrets_quota_reset.conf` | Per-secret monthly quota reset days |
+| `/opt/mtproxymax/templates.conf` | Reusable limit templates |
+| `/opt/mtproxymax/tunings.conf` | Engine parameter overrides (from `tune set`) |
+| `/opt/mtproxymax/banlist.conf` | Banned IPs/CIDRs (iptables-backed) |
+| `/opt/mtproxymax/upstreams.conf` | Upstream routing rules |
+| `/opt/mtproxymax/instances.conf` | Multi-port instance config |
+| `/opt/mtproxymax/profiles/` | Saved config profiles (named snapshots) |
+| `/opt/mtproxymax/audit.log` | Config change history |
+| `/opt/mtproxymax/connection.log` | Per-user activity log |
+| `/opt/mtproxymax/mtproxy/config.toml` | Generated telemt engine config |
+| `/opt/mtproxymax/pools.conf` | Shared Quota Pools definitions and membership tracking |
+| `/opt/mtproxymax/calendar.conf` | Weekend and holiday dynamic scheduling rules |
+| `/opt/mtproxymax/webhooks.conf` | Multi-channel webhook endpoint URLs |
+| `/opt/mtproxymax/geofence.conf` | Country-level geo-fencing rules and CIDR cache |
+| `/opt/mtproxymax/decoy.conf` | Active probe decoy routing and honeypot fallback targets |
+| `/opt/mtproxymax/failover.conf` | Autonomous upstream failover status and check policies |
+| `/opt/mtproxymax/eco_mode.conf` | Lightweight memory conservation mode status |
+| `/opt/mtproxymax/backups/` | Automatic backups (auto-cleaned via `BACKUP_RETENTION_DAYS`) |
 
 ---
 
-## 📋 История изменений
+## 📋 Changelog
 
-### v1.4.1-LTS — Усиление защиты, изоляция экземпляров и Telemt 3.5.7
+### v1.4.1-LTS — Enterprise Hardening, Multi-Instance Isolation & Telemt 3.5.7
 
-- **Движок Telemt 3.5.7 (`4ca7418`):** обновлён основной Rust-движок: добавлена проверка проб только по TCP (#919) и автоматическое восстановление устаревших каналов WebSocket после перезапуска (#923).
-- **Изоляция пар портов экземпляров (`instance`):** устранены циклические падения `AddrInUse` (#135). Порты метрик и статистики telemt выделяются неделимыми парами `[p, p+1]`, исключая конфликты дополнительных экземпляров с основным и друг с другом.
-- **Приоритет сервера маскировки и защита от петель (`mask-backend`):** обеспечен приоритет `MASKING_HOST/PORT` над Cover Shield (#128), добавлены двусторонняя синхронизация резервных адресов, обнаружение петель маршрутизации при TLS-проверках и сохранение пользовательских ключей при смене домена FakeTLS.
-- **Горячая перезагрузка с сохранением inode:** конфигурация теперь записывается в существующий файл, а в контейнер монтируется каталог (#134). Устранена незаметная рассинхронизация конфигурации, добавлена проверка через `/proc/<pid>/root`.
-- **Усиление RBAC для реселлеров Telegram-бота:** права reseller строго ограничены операциями с ваучерами (#132), нарушения безопасности записываются в `audit.log`.
-- **Поддержка Alpine Linux и OpenRC:** добавлены штатные init-скрипты и контроль служб OpenRC (#130) для систем без systemd и лёгких контейнерных хостов.
-- **Определение RAM и лимитов LXC (`resources`):** многоуровневое обнаружение памяти учитывает ограничения контейнера, а не только RAM хоста (#127); добавлено динамическое управление квотами CPU и памяти.
-- **Диагностика отправки файлов (`upload-test`):** добавлены проверки (#126) скорости загрузки файлов в Telegram, буферов записи сокетов, размеров окна TCP и очередей QoS.
-- **Атомарное подтверждение перезапуска:** сетевые настройки, требующие перезапуска, объединены в транзакции с единым подтверждением (#125).
+- **Telemt Engine 3.5.7 (`4ca7418`):** Updated core Rust proxy engine with TCP-only probe validation (#919) and automatic stale websocket lane recovery after restart (#923).
+- **Multi-Instance Port Pair Isolation (`instance`):** Resolved `AddrInUse` crash loops (#135) by treating telemt metrics and stats listeners as atomic pairs `[p, p+1]`, ensuring secondary instances never collide with primary or sibling stats listeners.
+- **Masking Backend Priority & Loop Defense (`mask-backend`):** Guaranteed `MASKING_HOST/PORT` precedence over Cover Shield (#128), synchronized fallback targets bidirectionally, added routing loop detection for TLS probes, and protected user secrets during FakeTLS domain updates.
+- **In-Place Hot-Reload & Inode Preservation:** Rewrote live config generation to write in-place and mount the config directory (#134), eliminating silent container config desync and adding `/proc/<pid>/root` sync verification.
+- **Telegram Bot Reseller RBAC Hardening:** Enforced strict RBAC for reseller accounts (#132), isolating them to voucher operations and logging security violations to `audit.log`.
+- **Alpine Linux & OpenRC Service Support:** Added native init scripts and supervision under OpenRC (#130) for non-systemd and lightweight container hosts.
+- **LXC Container RAM Auto-Detection & Limits (`resources`):** Multi-tier memory discovery honoring container ceilings over host physical RAM (#127), paired with dynamic CPU/memory quota management.
+- **Upload Diagnostics Utility (`upload-test`):** Integrated diagnostic pipeline (#126) for troubleshooting Telegram file upload speeds, auditing socket write buffers, TCP window sizes, and QoS queues.
+- **Atomic Restart Confirmation:** Grouped restart-requiring network settings into atomic transactional confirmations (#125).
 
-### v1.4.0-LTS — Объединение серверов и самообслуживание: максимальный набор возможностей
+### v1.4.0-LTS — Enterprise Federation & Self-Service Suite (Absolute Maximum Features)
 
-- **Ограничение скорости QoS (`speed-limit`):** Hierarchical Token Bucket (`htb`) и Linux `tc` с динамическим назначением ограничений каждой учётной записи.
-- **Объединение серверов (`fleet`):** централизованный сбор телеметрии Master-Slave и контроль работоспособности нескольких узлов.
-- **Автоматический SSL Shield (`ssl-shield`):** выпуск сертификатов Let's Encrypt / `openssl` и управление доменами ACME без ручного вмешательства.
-- **Облачные резервные копии (`backup-cloud`):** автоматическая отправка tar-архивов в чат администратора Telegram (`sendDocument`) или облачные хранилища (`rclone`/S3/R2).
-- **Двухуровневый Telegram-бот (`telegram`):** общедоступное самообслуживание (`/start`, `/my_status <label>`, `/voucher`) и защищённые административные команды (`/mp_fleet`, `/mp_secrets`, `/mp_lockdown`).
-- **Комплексное усиление защиты и аудит:** исправлены гонки (`flock`), предотвращено внедрение кода через конфигурацию (`grep | cut`), добавлена нормализация импорта CSV с разделителями-запятыми и вертикальными чертами (`secret_import`), обеспечены резервные сценарии контейнеров в строгом режиме по всему коду из 18 369 строк (`100% clean`).
+- **QoS Bandwidth Shaping (`speed-limit`):** Hierarchical Token Bucket (`htb`) and Linux `tc` shaping dynamically assigned per account.
+- **Multi-Server Fleet Federation (`fleet`):** Centralized Master-Slave telemetry aggregation and multi-node health monitoring.
+- **Automated SSL Shield (`ssl-shield`):** Zero-touch Let's Encrypt / `openssl` certificate issuance and ACME domain management.
+- **Automated Cloud Backups (`backup-cloud`):** Automatic tarball offloading to Telegram admin chat (`sendDocument`) or multi-cloud storage (`rclone`/S3/R2).
+- **Dual-Tier Telegram Bot (`telegram`):** Public self-service tier (`/start`, `/my_status <label>`, `/voucher`) combined with an authenticated Admin Control Plane (`/mp_fleet`, `/mp_secrets`, `/mp_lockdown`).
+- **Comprehensive Hardening & Audit:** Fixed race conditions (`flock`), prevented configuration code injection (`grep | cut`), added comma/pipe CSV import normalization (`secret_import`), and ensured strict-mode container fallbacks across 18,369 lines (`100% clean`).
 
-### v1.3.1 — Улучшения производительности и защиты от DPI
-- Добавлены **автонастройка TCP BBRv3 и ECN (`bbr` / `tune-net`)**, **дополнение пакетов против DPI (`shield`)** и **маскировка через обратный прокси (`cover-shield`)**.
+### v1.3.1 — Performance & Anti-DPI Upgrade Suite
+- Added **TCP BBRv3 & ECN Auto-Tuning (`bbr` / `tune-net`)**, **Anti-DPI Packet Padding Shield (`shield`)**, and **Reverse-Proxy Cover Shield (`cover-shield`)**.
 
-### v1.3.0 — Крупный релиз: 20 корпоративных функций в 4 наборах
-- Добавлены **экономичный режим (`eco-mode`)**, **перенаправление на приманку (`decoy`)**, **общие пулы квот (`pool`)**, **календарное расписание (`calendar`)**, **экстренный перенос (`evacuate`)**, **многоканальные вебхуки (`webhook`)** и **автоматический поиск SNI (`auto-sni`)**.
+### v1.3.0 — The Mega-Release (20 Enterprise Features Across 4 Suites)
+- Added **Eco-Mode (`eco-mode`)**, **Decoy Routing (`decoy`)**, **Shared Quota Pools (`pool`)**, **Calendar Scheduling (`calendar`)**, **1-Click Evacuation (`evacuate`)**, **Multi-Channel Webhooks (`webhook`)**, and **Autonomous SNI Hunter (`auto-sni`)**.
 
-### v1.2.0 — Коммерческие функции, защита от DPI и кластеры DevOps
-- Добавлены **ваучеры (`voucher`)**, **ролевое управление доступом (`admin`)**, **портал состояния (`portal`)**, **защита от сканеров (`scanner-shield`)** и **экспорт конфигураций HAProxy/Nginx (`export-lb`)**.
+### v1.2.0 — Commercial & Shield Suite, Next-Gen Anti-DPI & DevOps Clustering
+- Added **Vouchers (`voucher`)**, **Role-Based Access Control (`admin`)**, **Status Portal (`portal`)**, **Scanner Shield (`scanner-shield`)**, and **HAProxy/Nginx Exporter (`export-lb`)**.
 
-### v1.1.0 — Расширение защиты от DPI и маскировки
-- Добавлены **SYN-защита ядра (`shield`)**, **режимы маскировки (`stealth`)**, **ограничение TCP MSS (`clamp-mss`)** и **пул доменов SNI (`domain-pool`)**.
+### v1.1.0 — Anti-DPI & Stealth Defenses Expansion
+- Added **Kernel SYN Shield (`shield`)**, **Stealth Presets (`stealth`)**, **TCP MSS Clamping (`clamp-mss`)**, and **Multi-Domain SNI Pool (`domain-pool`)**.
 
-### v1.0.10 — Сводка состояния и проверка дата-центров
-- Добавлены **сводка состояния (`digest`)**, **измерение задержек до дата-центров (`ping-dc`)**, **подписки Base64 (`secret sub`)** и **экспорт базы в JSON (`secret export-json`)**.
+### v1.0.10 — Executive Digest & DC Benchmarking
+- Added **Executive Digest (`digest`)**, **Datacenter Benchmark (`ping-dc`)**, **Base64 Subscriptions (`secret sub`)**, and **JSON Database Export (`secret export-json`)**.
 
-### v1.0.0–v1.0.9 — Основа платформы и развитие движка Telemt
-- Первый выпуск MTProxyMax с Rust-движком `telemt`, интерактивным TUI, CLI, FakeTLS, репликацией Master-Slave (`rsync+SSH`), тегами пользователей, шаблонами, архивированием с восстановлением и постоянным учётом трафика.
-
----
-
-## 🙏 Благодарности
-
-Проект построен на **telemt** — высокопроизводительном MTProto-прокси на Rust/Tokio. Telemt обеспечивает обработку протокола прокси, FakeTLS, маскировку трафика и применение индивидуальных ограничений.
+### v1.0.0 to v1.0.9 — Core Platform Foundation & Telemt Engine Evolutions
+- Initial launch of MTProxyMax with `telemt` Rust engine, interactive TUI, CLI, FakeTLS, master-slave replication (`rsync+SSH`), user tagging, templates, soft-delete archiving, and persistent traffic accounting.
 
 ---
 
-## 📖 Документация и руководства
+## 🙏 Credits
 
-Пошаговые инструкции со снимками экрана и подробными пояснениями доступны на SamNet:
-
-- **[Полное руководство по настройке MTProto-прокси](https://www.samnet.dev/learn/networking/mtproto-proxy-telegram/)** — установка, управление пользователями, FakeTLS, Telegram-бот, цепочки прокси, геоблокировка, репликация и монетизация рекламными тегами.
-- **[Руководство по настройке панели 3X-UI](https://www.samnet.dev/learn/networking/xui-setup/)** — если наряду с MTProto нужны протоколы VLESS/VMess/Reality/Trojan.
-- **[Руководство по защите сервера](https://www.samnet.dev/learn/security/server-hardening/)** — усиление SSH, правила межсетевого экрана и fail2ban.
-- **[Шпаргалка по iptables](https://www.samnet.dev/learn/cheatsheets/iptables-guide/)** — справочник правил межсетевого экрана для защиты прокси.
-- **[Проверка утечек VPN](https://www.samnet.dev/tools/vpn-leak-test/)** — проверка того, скрывает ли прокси ваш реальный IP.
-- **[Сканер портов](https://www.samnet.dev/tools/port-scanner/)** — проверка доступности порта прокси из интернета.
+Built on top of **telemt** — a high-performance MTProto proxy engine written in Rust/Tokio. All proxy protocol handling, FakeTLS, traffic masking, and per-user enforcement is powered by telemt.
 
 ---
 
-## 💖 Поддержать проект
+## 📖 Documentation & Guides
 
-Если MTProxyMax оказался полезен, вы можете поддержать его разработку:
+For step-by-step tutorials with screenshots and detailed explanations, visit our guides on SamNet:
+
+- **[Complete MTProto Proxy Setup Guide](https://www.samnet.dev/learn/networking/mtproto-proxy-telegram/)** — Full walkthrough: install, multi-user management, FakeTLS, Telegram bot, proxy chaining, geo-blocking, replication, and ad-tag monetization.
+- **[3X-UI Panel Setup Guide](https://www.samnet.dev/learn/networking/xui-setup/)** — If you need VLESS/VMess/Reality/Trojan protocols alongside MTProto.
+- **[Server Hardening Guide](https://www.samnet.dev/learn/security/server-hardening/)** — Secure your proxy server: SSH hardening, firewall rules, fail2ban.
+- **[iptables Cheat Sheet](https://www.samnet.dev/learn/cheatsheets/iptables-guide/)** — Firewall rules reference for protecting your proxy.
+- **[VPN Leak Test](https://www.samnet.dev/tools/vpn-leak-test/)** — Verify your proxy is hiding your real IP.
+- **[Port Scanner](https://www.samnet.dev/tools/port-scanner/)** — Check if your proxy port is accessible from the internet.
+
+---
+
+## 💖 Donate
+
+If you find MTProxyMax useful, consider supporting its development:
 
 [**samnet.dev/donate**](https://www.samnet.dev/donate/)
 
 ---
 
-## 📄 Лицензия
+## 📄 License
 
-Лицензия MIT — подробности в [LICENSE](LICENSE).
+MIT License — see [LICENSE](LICENSE) for details.
 
-**Движок telemt**, поставляемый в Docker-образе, распространяется по [Telemt Public License 3 (TPL-3)](https://github.com/telemt/telemt/blob/main/LICENSE) — разрешительной лицензии, допускающей использование, распространение и изменение с указанием авторства.
+The **telemt engine** (included as a Docker image) is licensed under the [Telemt Public License 3 (TPL-3)](https://github.com/telemt/telemt/blob/main/LICENSE) — a permissive license that allows use, redistribution, and modification with attribution.
 
 Copyright (c) 2026 SamNet Technologies
